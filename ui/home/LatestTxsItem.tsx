@@ -52,9 +52,10 @@ const LatestTxsItem = ({ tx, isLoading }: Props) => {
       gridGap={ 3 }
       width="100%"
       minW={ columnNum === 2 ? '700px' : '750px' }
-      borderBottom="1px solid"
-      borderColor="border.divider"
-      p={ 4 }
+      borderRadius="0"
+      bgColor="bg.surface"
+      px={ 4 }
+      py={ 3 }
       display={{ base: 'none', lg: 'grid' }}
     >
       <Flex overflow="hidden" w="100%">

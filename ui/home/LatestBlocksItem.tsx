@@ -32,7 +32,8 @@ const LatestBlocksItem = ({ block, isLoading, animation }: Props) => {
       animation={ animation }
       borderRadius="md"
       border="1px solid"
-      borderColor="border.divider"
+      borderColor="border.card"
+      bgColor="bg.surface"
       p={ 3 }
     >
       <Flex alignItems="center" overflow="hidden" w="100%" mb={ 3 }>
@@ -43,6 +44,7 @@ const LatestBlocksItem = ({ block, isLoading, animation }: Props) => {
           textStyle="md"
           fontWeight={ 500 }
           mr="auto"
+          link={{ variant: 'title' }}
         />
         { block.celo?.l1_era_finalized_epoch_number && (
           <Tooltip content={ `Finalized epoch #${ block.celo.l1_era_finalized_epoch_number }` }>

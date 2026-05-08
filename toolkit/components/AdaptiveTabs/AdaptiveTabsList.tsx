@@ -179,7 +179,7 @@ const AdaptiveTabsList = (props: Props) => {
             value={ value }
             flexShrink={ 0 }
             bgColor={
-              activeTabIndex === index && (variant === 'solid' || variant === undefined) ?
+              activeTabIndex === index && (variant === 'secondary' || variant === 'segmented') ?
                 { _light: 'blackAlpha.50', _dark: 'whiteAlpha.50' } :
                 undefined
             }

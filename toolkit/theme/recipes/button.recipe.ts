@@ -14,6 +14,7 @@ export const recipe = defineRecipe({
   variants: {
     variant: {
       solid: {
+        fontFamily: 'display',
         bg: 'button.solid.bg',
         color: 'button.solid.text',
         _hover: {

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
 import { route } from 'nextjs-routes';
@@ -38,7 +38,7 @@ const LatestWatchlistTxs = () => {
     const txsUrl = route({ pathname: '/txs', query: { tab: 'watchlist' } });
     return (
       <>
-        <Box mb={ 3 } display={{ base: 'block', lg: 'none' }} textStyle="sm">
+        <VStack mb={ 3 } gap={ 1 } alignItems="stretch" display={{ base: 'flex', lg: 'none' }} textStyle="sm">
           { data.slice(0, txsCount).map(((tx, index) => (
             <LatestTxsItemMobile
               key={ tx.hash + (isPlaceholderData ? index : '') }
@@ -46,8 +46,8 @@ const LatestWatchlistTxs = () => {
               isLoading={ isPlaceholderData }
             />
           ))) }
-        </Box>
-        <Box mb={ 4 } display={{ base: 'none', lg: 'block' }} textStyle="sm">
+        </VStack>
+        <VStack mb={ 4 } gap={ 1 } alignItems="stretch" display={{ base: 'none', lg: 'flex' }} textStyle="sm">
           { data.slice(0, txsCount).map(((tx, index) => (
             <LatestTxsItem
               key={ tx.hash + (isPlaceholderData ? index : '') }
@@ -55,7 +55,7 @@ const LatestWatchlistTxs = () => {
               isLoading={ isPlaceholderData }
             />
           ))) }
-        </Box>
+        </VStack>
         <Flex justifyContent="center">
           <Link textStyle="sm" href={ txsUrl }>View all watch list transactions</Link>
         </Flex>

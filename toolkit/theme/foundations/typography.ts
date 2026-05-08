@@ -4,12 +4,14 @@ import type { ExcludeUndefined } from 'types/utils';
 
 import config from 'configs/app';
 
-export const BODY_TYPEFACE = config.UI.fonts.body?.name ?? 'Inter, InterFallback';
-export const HEADING_TYPEFACE = config.UI.fonts.heading?.name ?? 'Poppins';
+export const BODY_TYPEFACE = config.UI.fonts.body?.name ?? 'Outfit';
+export const HEADING_TYPEFACE = config.UI.fonts.heading?.name ?? 'Outfit';
+export const DISPLAY_TYPEFACE = config.UI.fonts.display?.name ?? 'Chakra Petch';
 
 export const fonts: ExcludeUndefined<ThemingConfig['tokens']>['fonts'] = {
-  heading: { value: `${ HEADING_TYPEFACE }, sans-serif` },
   body: { value: `${ BODY_TYPEFACE }, sans-serif` },
+  heading: { value: `${ HEADING_TYPEFACE }, sans-serif` },
+  display: { value: `${ DISPLAY_TYPEFACE }, sans-serif` },
 };
 
 export const textStyles: ThemingConfig['textStyles'] = {
@@ -20,7 +22,7 @@ export const textStyles: ThemingConfig['textStyles'] = {
         lineHeight: '40px',
         fontWeight: '500',
         letterSpacing: '-0.5px',
-        fontFamily: 'heading',
+        fontFamily: 'body',
       },
     },
     lg: {
@@ -28,7 +30,7 @@ export const textStyles: ThemingConfig['textStyles'] = {
         fontSize: '24px',
         lineHeight: '32px',
         fontWeight: '500',
-        fontFamily: 'heading',
+        fontFamily: 'body',
       },
     },
     md: {
@@ -36,7 +38,7 @@ export const textStyles: ThemingConfig['textStyles'] = {
         fontSize: '18px',
         lineHeight: '24px',
         fontWeight: '500',
-        fontFamily: 'heading',
+        fontFamily: 'body',
       },
     },
     sm: {
@@ -44,7 +46,7 @@ export const textStyles: ThemingConfig['textStyles'] = {
         fontSize: '16px',
         lineHeight: '24px',
         fontWeight: '500',
-        fontFamily: 'heading',
+        fontFamily: 'body',
       },
     },
     xs: {
@@ -52,7 +54,7 @@ export const textStyles: ThemingConfig['textStyles'] = {
         fontSize: '14px',
         lineHeight: '20px',
         fontWeight: '600',
-        fontFamily: 'heading',
+        fontFamily: 'body',
       },
     },
   },

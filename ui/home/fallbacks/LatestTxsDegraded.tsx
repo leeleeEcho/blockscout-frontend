@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, VStack } from '@chakra-ui/react';
 import { clamp } from 'es-toolkit';
 import React from 'react';
 
@@ -50,7 +50,7 @@ const LatestTxsDegraded = ({ maxNum }: Props) => {
   return (
     <>
       <LatestTxsDegradedNewItems overflow={ overflow } url={ txsUrl } isLoading={ isLoading }/>
-      <Box mb={ 3 } display={{ base: 'block', lg: 'none' }} textStyle="sm">
+      <VStack mb={ 3 } mt={ 1 } gap={ 1 } alignItems="stretch" display={{ base: 'flex', lg: 'none' }} textStyle="sm">
         { items.map(((tx, index) => (
           <LatestTxsItemMobile
             key={ tx.hash + (isLoading ? index : '') }
@@ -58,9 +58,9 @@ const LatestTxsDegraded = ({ maxNum }: Props) => {
             isLoading={ isLoading }
           />
         ))) }
-      </Box>
+      </VStack>
       <AddressHighlightProvider>
-        <Box mb={ 3 } display={{ base: 'none', lg: 'block' }} textStyle="sm">
+        <VStack mb={ 3 } mt={ 1 } gap={ 1 } alignItems="stretch" display={{ base: 'none', lg: 'flex' }} textStyle="sm">
           { items.map(((tx, index) => (
             <LatestTxsItem
               key={ tx.hash + (isLoading ? index : '') }
@@ -68,7 +68,7 @@ const LatestTxsDegraded = ({ maxNum }: Props) => {
               isLoading={ isLoading }
             />
           ))) }
-        </Box>
+        </VStack>
       </AddressHighlightProvider>
       <Flex justifyContent="center">
         <Link textStyle="sm" loading={ isLoading } href={ txsUrl }>View all transactions</Link>

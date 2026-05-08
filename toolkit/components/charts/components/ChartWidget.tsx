@@ -39,7 +39,7 @@ export const ChartWidgetHeader = ({ title, description, href, isLoading, ...rest
       flexDir="column"
       alignItems="flex-start"
       cursor={ href ? 'pointer' : 'default' }
-      _hover={ href ? { color: 'link.primary.hovered' } : {} }
+      _hover={ href ? { color: 'link.primary.hover' } : {} }
       { ...rest }
     >
       <Skeleton

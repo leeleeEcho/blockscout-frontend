@@ -32,5 +32,16 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       }
     })();
 
-    return <ChakraHeading ref={ ref } color="heading" textStyle={ textStyle } as={ as } { ...rest }/>;
+    const fontFamily = level === '1' ? 'display' : undefined;
+
+    return (
+      <ChakraHeading
+        ref={ ref }
+        color="heading"
+        textStyle={ textStyle }
+        fontFamily={ fontFamily }
+        as={ as }
+        { ...rest }
+      />
+    );
   });

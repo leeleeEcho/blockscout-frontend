@@ -16,19 +16,27 @@ export const recipe = defineRecipe({
           color: 'link.primary.hover',
         },
       },
+      // Card / widget row title (e.g. block height, tx hash): main text color, not list-style secondary links
+      title: {
+        color: 'text.primary',
+        _hover: {
+          textDecoration: 'none',
+          color: 'text.highlight',
+        },
+      },
       secondary: {
         color: 'link.secondary',
         _hover: {
           textDecoration: 'none',
-          color: 'hover',
+          color: 'text.highlight',
         },
       },
       subtle: {
         color: 'link.subtle',
         _hover: {
-          color: 'link.subtle.hover',
+          color: 'text.highlight',
           textDecorationLine: 'underline',
-          textDecorationColor: 'link.subtle.hover',
+          textDecorationColor: 'text.highlight',
         },
       },
       underlaid: {
@@ -46,7 +54,7 @@ export const recipe = defineRecipe({
       menu: {
         color: 'link.menu',
         _hover: {
-          color: 'hover',
+          color: 'text.highlight',
           textDecoration: 'none',
         },
       },

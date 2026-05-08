@@ -2,121 +2,119 @@ import { defaultsDeep } from 'es-toolkit/compat';
 
 import config from 'configs/app';
 
+// AxBlade explorer palette — see docs/design/axblade-color-tokens.md & Figma AxBlade blockchain browser
 const DEFAULT_THEME_COLORS = {
   bg: {
+    // BG / Frame swapped vs initial AxBlade spec — page uses former Frame, panels use former BG
     primary: {
-      // for some reason links to colors.white and colors.black variables are not working here
-      // so we use hex values instead
-      // but it is not the case for other colors
-      _light: { value: '#FFFFFF' }, // colors.white
-      _dark: { value: '#101112' }, // colors.black
+      _light: { value: '#FCFCFC' },
+      _dark: { value: '#090909' },
     },
   },
   text: {
     primary: {
-      _light: { value: '{colors.blackAlpha.800}' },
-      _dark: { value: '{colors.whiteAlpha.800}' },
+      _light: { value: '#111111' },
+      _dark: { value: '#F2F2F2' },
     },
     secondary: {
-      _light: { value: '{colors.gray.500}' },
-      _dark: { value: '{colors.gray.400}' },
+      _light: { value: '#7C8A84' },
+      _dark: { value: '#97A6A0' },
+    },
+    highlight: {
+      _light: { value: '#00664E' },
+      _dark: { value: '#00FFB2' },
     },
   },
   hover: {
-    _light: { value: '{colors.blue.400}' },
-    _dark: { value: '{colors.blue.400}' },
+    _light: { value: '#00664E' },
+    _dark: { value: '#33FFC4' },
   },
   selected: {
     control: {
       text: {
-        _light: { value: '{colors.blue.700}' },
-        _dark: { value: '{colors.gray.50}' },
+        _light: { value: '#003B2E' },
+        _dark: { value: '#F2F2F2' },
       },
       bg: {
-        _light: { value: '{colors.blue.50}' },
-        _dark: { value: '{colors.whiteAlpha.50}' },
+        _light: { value: '#B2FFE8' },
+        _dark: { value: 'RGBA(255, 255, 255, 0.06)' },
       },
     },
     option: {
       bg: {
-        _light: { value: '{colors.blue.500}' },
-        _dark: { value: '{colors.blue.500}' },
+        _light: { value: '#00FFB2' },
+        _dark: { value: '#00FFB2' },
       },
     },
   },
   icon: {
     primary: {
-      _light: { value: '{colors.gray.500}' },
-      _dark: { value: '{colors.gray.400}' },
+      _light: { value: '#7C8A84' },
+      _dark: { value: '#97A6A0' },
     },
     secondary: {
-      _light: { value: '{colors.gray.400}' },
-      _dark: { value: '{colors.gray.500}' },
+      _light: { value: '#97A6A0' },
+      _dark: { value: '#7C8A84' },
     },
   },
   button: {
     primary: {
-      _light: { value: '{colors.blue.600}' },
-      _dark: { value: '{colors.blue.600}' },
+      _light: { value: '#00FFB2' },
+      _dark: { value: '#00FFB2' },
       text: {
-        _light: { value: '{colors.white}' },
-        _dark: { value: '{colors.white}' },
+        _light: { value: '#003B2E' },
+        _dark: { value: '#003B2E' },
       },
-    },
-  },
-  link: {
-    primary: {
-      _light: { value: '{colors.blue.600}' },
-      _dark: { value: '{colors.blue.300}' },
     },
   },
   graph: {
     line: {
-      _light: { value: '{colors.blue.500}' },
-      _dark: { value: '{colors.blue.200}' },
+      _light: { value: '#00664E' },
+      _dark: { value: '#00FFB2' },
     },
     gradient: {
       start: {
-        _light: { value: 'rgba(144, 205, 244, 0.3)' }, // blue.200 with opacity 0.3
-        _dark: { value: 'rgba(144, 205, 244, 0.3)' }, // blue.200 with opacity 0.3
+        _light: { value: 'rgba(0, 255, 178, 0.35)' },
+        _dark: { value: 'rgba(0, 255, 178, 0.35)' },
       },
       stop: {
-        _light: { value: 'rgba(144, 205, 244, 0)' }, // blue.200 with opacity 0
-        _dark: { value: 'rgba(144, 205, 244, 0)' }, // blue.200 with opacity 0
+        _light: { value: 'rgba(0, 255, 178, 0)' },
+        _dark: { value: 'rgba(0, 255, 178, 0)' },
       },
     },
   },
   navigation: {
     bg: {
       selected: {
-        _light: { value: '{colors.blue.50}' },
-        _dark: { value: '{colors.gray.800}' },
+        _light: { value: '#DEE6E3' },
+        _dark: { value: '#003B2E' },
       },
     },
     text: {
       selected: {
-        _light: { value: '{colors.blue.700}' },
-        _dark: { value: '{colors.gray.50}' },
+        _light: { value: '#00664E' },
+        _dark: { value: '#00FFB2' },
       },
     },
   },
   stats: {
     bg: {
-      _light: { value: '{colors.gray.50}' },
-      _dark: { value: '{colors.whiteAlpha.100}' },
+      _light: { value: '#F2F2F2' },
+      _dark: { value: '#111111' },
     },
   },
   topbar: {
     bg: {
-      _light: { value: '{colors.gray.50}' },
-      _dark: { value: '{colors.whiteAlpha.100}' },
+      _light: { value: '#F2F2F2' },
+      _dark: { value: '#111111' },
     },
   },
   tabs: {
     text: {
-      primary: {
-        _light: { value: '{colors.blue.700}' },
-        _dark: { value: '{colors.blue.100}' },
+      // Figma Submenu_Btn: inactive label uses 50% white (dark) / 50% black (light)
+      inactive: {
+        _light: { value: 'rgba(0, 0, 0, 0.5)' },
+        _dark: { value: 'rgba(255, 255, 255, 0.5)' },
       },
     },
   },
@@ -125,16 +123,16 @@ const DEFAULT_THEME_COLORS = {
 const colors = {
   // BASE COLORS
   green: {
-    '50': { value: '#F0FFF4' },
-    '100': { value: '#C6F6D5' },
-    '200': { value: '#9AE6B4' },
-    '300': { value: '#68D391' },
-    '400': { value: '#48BB78' },
-    '500': { value: '#38A169' },
-    '600': { value: '#25855A' },
-    '700': { value: '#276749' },
-    '800': { value: '#22543D' },
-    '900': { value: '#1C4532' },
+    '50': { value: '#E6FFF9' },
+    '100': { value: '#B2FFE8' },
+    '200': { value: '#7FFFD4' },
+    '300': { value: '#4DFFC4' },
+    '400': { value: '#28E59B' },
+    '500': { value: '#00FFB2' },
+    '600': { value: '#00CC8E' },
+    '700': { value: '#00664E' },
+    '800': { value: '#003B2E' },
+    '900': { value: '#001F18' },
   },
   blue: {
     '50': { value: '#EBF8FF' },
@@ -149,16 +147,16 @@ const colors = {
     '900': { value: '#1A365D' },
   },
   red: {
-    '50': { value: '#FFF5F5' },
-    '100': { value: '#FED7D7' },
-    '200': { value: '#FEB2B2' },
-    '300': { value: '#FC8181' },
-    '400': { value: '#F56565' },
-    '500': { value: '#E53E3E' },
-    '600': { value: '#C53030' },
-    '700': { value: '#9B2C2C' },
-    '800': { value: '#822727' },
-    '900': { value: '#63171B' },
+    '50': { value: '#FFF5F6' },
+    '100': { value: '#FFE0E4' },
+    '200': { value: '#FFC2CA' },
+    '300': { value: '#FF9EAB' },
+    '400': { value: '#FF7A8A' },
+    '500': { value: '#FF6175' },
+    '600': { value: '#E04A5F' },
+    '700': { value: '#B83A4C' },
+    '800': { value: '#8F2D3C' },
+    '900': { value: '#4A1820' },
   },
   orange: {
     '50': { value: '#FFFAF0' },
@@ -173,28 +171,28 @@ const colors = {
     '900': { value: '#652B19' },
   },
   yellow: {
-    '50': { value: '#FFFFF0' },
-    '100': { value: '#FEFCBF' },
-    '200': { value: '#FAF089' },
-    '300': { value: '#F6E05E' },
-    '400': { value: '#ECC94B' },
-    '500': { value: '#D69E2E' },
-    '600': { value: '#B7791F' },
-    '700': { value: '#975A16' },
-    '800': { value: '#744210' },
-    '900': { value: '#5F370E' },
+    '50': { value: '#FFFBF0' },
+    '100': { value: '#FDF0D1' },
+    '200': { value: '#FAE2A8' },
+    '300': { value: '#F5D078' },
+    '400': { value: '#EEB84A' },
+    '500': { value: '#E7A71E' },
+    '600': { value: '#C48C16' },
+    '700': { value: '#9E7112' },
+    '800': { value: '#75550E' },
+    '900': { value: '#4D3809' },
   },
   gray: {
-    '50': { value: '#F7FAFC' },
-    '100': { value: '#EDF2F7' },
-    '200': { value: '#E2E8F0' },
-    '300': { value: '#CBD5E0' },
-    '400': { value: '#A0AEC0' },
-    '500': { value: '#718096' },
-    '600': { value: '#4A5568' },
-    '700': { value: '#2D3748' },
-    '800': { value: '#1A202C' },
-    '900': { value: '#171923' },
+    '50': { value: '#FCFCFC' },
+    '100': { value: '#DEE6E3' },
+    '200': { value: '#C5D0CC' },
+    '300': { value: '#97A6A0' },
+    '400': { value: '#7C8A84' },
+    '500': { value: '#5C6964' },
+    '600': { value: '#414745' },
+    '700': { value: '#2E3331' },
+    '800': { value: '#1A1A1A' },
+    '900': { value: '#090909' },
   },
   teal: {
     '50': { value: '#E6FFFA' },
@@ -244,7 +242,7 @@ const colors = {
     '800': { value: '#702459' },
     '900': { value: '#521B41' },
   },
-  black: { value: '#101112' },
+  black: { value: '#111111' },
   white: { value: '#ffffff' },
   whiteAlpha: {
     '50': { value: 'RGBA(255, 255, 255, 0.04)' },
@@ -259,16 +257,16 @@ const colors = {
     '900': { value: 'RGBA(255, 255, 255, 0.92)' },
   },
   blackAlpha: {
-    '50': { value: 'RGBA(16, 17, 18, 0.04)' },
-    '100': { value: 'RGBA(16, 17, 18, 0.06)' },
-    '200': { value: 'RGBA(16, 17, 18, 0.08)' },
-    '300': { value: 'RGBA(16, 17, 18, 0.16)' },
-    '400': { value: 'RGBA(16, 17, 18, 0.24)' },
-    '500': { value: 'RGBA(16, 17, 18, 0.36)' },
-    '600': { value: 'RGBA(16, 17, 18, 0.48)' },
-    '700': { value: 'RGBA(16, 17, 18, 0.64)' },
-    '800': { value: 'RGBA(16, 17, 18, 0.80)' },
-    '900': { value: 'RGBA(16, 17, 18, 0.92)' },
+    '50': { value: 'RGBA(17, 17, 17, 0.04)' },
+    '100': { value: 'RGBA(17, 17, 17, 0.06)' },
+    '200': { value: 'RGBA(17, 17, 17, 0.08)' },
+    '300': { value: 'RGBA(17, 17, 17, 0.16)' },
+    '400': { value: 'RGBA(17, 17, 17, 0.24)' },
+    '500': { value: 'RGBA(17, 17, 17, 0.36)' },
+    '600': { value: 'RGBA(17, 17, 17, 0.48)' },
+    '700': { value: 'RGBA(17, 17, 17, 0.64)' },
+    '800': { value: 'RGBA(17, 17, 17, 0.80)' },
+    '900': { value: 'RGBA(17, 17, 17, 0.92)' },
   },
 
   // BRAND COLORS

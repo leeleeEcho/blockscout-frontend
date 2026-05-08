@@ -241,6 +241,12 @@ export const miscSchema = yup.object({
         const isUndefined = data === undefined;
         return isUndefined || fontFamilySchema.isValidSync(data);
       }),
+    NEXT_PUBLIC_FONT_FAMILY_DISPLAY: yup
+      .mixed()
+      .test('shape', 'Invalid schema were provided for NEXT_PUBLIC_FONT_FAMILY_DISPLAY', (data) => {
+        const isUndefined = data === undefined;
+        return isUndefined || fontFamilySchema.isValidSync(data);
+      }),
     NEXT_PUBLIC_MAX_CONTENT_WIDTH_ENABLED: yup.boolean(),
 });
 

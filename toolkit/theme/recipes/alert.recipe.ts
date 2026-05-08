@@ -37,6 +37,7 @@ export const recipe = defineSlotRecipe({
   variants: {
     status: {
       info: {},
+      table_title: {},
       warning: {},
       warning_table: {},
       success: {},
@@ -108,6 +109,15 @@ export const recipe = defineSlotRecipe({
       css: {
         root: {
           bg: 'alert.bg.info',
+        },
+      },
+    },
+    {
+      status: 'table_title',
+      variant: 'subtle',
+      css: {
+        root: {
+          bg: 'alert.bg.table_title',
         },
       },
     },

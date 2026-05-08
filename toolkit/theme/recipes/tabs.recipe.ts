@@ -127,22 +127,75 @@ export const recipe = defineSlotRecipe({
     },
 
     variant: {
+      // AxBlade Figma Submenu_Btn — underline tabs, Outfit 14 Regular, 30px gap
       solid: {
-        trigger: {
-          fontWeight: '600',
-          gap: '1',
-          borderRadius: 'base',
-          color: 'tabs.solid.fg',
-          bg: 'transparent',
-          _selected: {
-            bg: 'selected.control.bg',
-            color: 'selected.control.text',
-            _hover: {
-              color: 'selected.control.text',
+        root: {
+          '--tabs-trigger-radius': '0',
+        },
+        list: {
+          columnGap: '30px',
+          rowGap: '0',
+          borderBottomWidth: '0',
+          minH: 'unset',
+          _horizontal: {
+            _before: {
+              display: 'none',
             },
           },
+        },
+        indicator: {
+          display: 'none',
+        },
+        trigger: {
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          gap: '1',
+          position: 'relative',
+          minW: 'unset',
+          minH: 'unset',
+          height: 'auto',
+          py: '0',
+          px: '0',
+          pb: '2',
+          fontWeight: '400',
+          textStyle: 'sm',
+          letterSpacing: '0.5px',
+          rounded: 'none',
+          color: 'tabs.solid.fg',
+          bg: 'transparent',
+          borderBottomWidth: '0',
+          _after: {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            bottom: '0',
+            left: '0',
+            right: '0',
+            height: '2px',
+            rounded: 'md',
+            bg: 'transparent',
+            pointerEvents: 'none',
+          },
           _hover: {
-            color: 'hover',
+            bg: 'transparent',
+            color: 'text.highlight',
+          },
+          _selected: {
+            bg: 'transparent',
+            color: 'text.primary',
+            _after: {
+              bg: 'text.highlight',
+              rounded: 'md',
+            },
+            _hover: {
+              bg: 'transparent',
+              color: 'text.primary',
+              _after: {
+                bg: 'text.highlight',
+                rounded: 'md',
+              },
+            },
           },
         },
       },

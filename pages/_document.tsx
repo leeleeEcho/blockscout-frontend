@@ -10,6 +10,10 @@ import * as svgSprite from 'ui/shared/IconSvg';
 
 const marketplaceFeature = config.features.marketplace;
 
+const isExternalFontStylesheet = (url: string | undefined | null): url is string => {
+  return Boolean(url && /^https?:\/\//i.test(url));
+};
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
@@ -34,15 +38,21 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          { /* FONTS */ }
-          <link
-            href={ config.UI.fonts.heading?.url ?? 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap' }
-            rel="stylesheet"
-          />
-          <link
-            href={ config.UI.fonts.body?.url ?? 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }
-            rel="stylesheet"
-          />
+          { /* FONTS: local @font-face in nextjs/global.css; optional http(s) env URLs add <link> below. */ }
+          { (() => {
+            const bodyUrl = config.UI.fonts.body?.url;
+            const headingUrl = config.UI.fonts.heading?.url;
+            const displayUrl = config.UI.fonts.display?.url;
+            return (
+              <>
+                { isExternalFontStylesheet(bodyUrl) && <link href={ bodyUrl } rel="stylesheet"/> }
+                { isExternalFontStylesheet(headingUrl) && headingUrl !== bodyUrl && (
+                  <link href={ headingUrl } rel="stylesheet"/>
+                ) }
+                { isExternalFontStylesheet(displayUrl) && <link href={ displayUrl } rel="stylesheet"/> }
+              </>
+            );
+          })() }
 
           { /* eslint-disable-next-line @next/next/no-sync-scripts */ }
           <script src="/assets/envs.js"/>

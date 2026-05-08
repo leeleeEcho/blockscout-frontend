@@ -17,3 +17,5 @@ To add new glyphs to the Inter fallback font:
     --flavor=woff2 \
     --unicodes=U+2192
     ```
+
+UI fonts live in `outfit/` and `chakra/`; they are registered in `nextjs/global.css` via `@font-face` (paths `/static/fonts/outfit/…`, `/static/fonts/chakra/…`).

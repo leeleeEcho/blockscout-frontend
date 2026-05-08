@@ -48,11 +48,11 @@ const Transactions = () => {
     ].filter(Boolean);
     return (
       <>
-        <HStack mb={ 3 }>
+        <HStack mb={ 2 }>
           <Heading level="3" >Transactions</Heading>
           { isRpcData && <FallbackRpcIcon/> }
         </HStack>
-        <AdaptiveTabs tabs={ tabs } unmountOnExit={ false } listProps={{ mb: 3 }}/>
+        <AdaptiveTabs tabs={ tabs } unmountOnExit={ false } listProps={{ mb: 2 }}/>
       </>
     );
   }
@@ -65,18 +65,18 @@ const Transactions = () => {
 
     return (
       <>
-        <HStack mb={ 3 }>
+        <HStack mb={ 2 }>
           <Heading level="3" >Latest transactions</Heading>
           { isRpcData && <FallbackRpcIcon/> }
         </HStack>
-        <AdaptiveTabs tabs={ tabs } unmountOnExit={ false } listProps={{ mb: 3 }}/>
+        <AdaptiveTabs tabs={ tabs } unmountOnExit={ false } listProps={{ mb: 2 }}/>
       </>
     );
   }
 
   return (
     <>
-      <HStack mb={ 3 }>
+      <HStack mb={ 2 }>
         <Heading level="3" >Latest transactions</Heading>
         { isRpcData && <FallbackRpcIcon/> }
       </HStack>

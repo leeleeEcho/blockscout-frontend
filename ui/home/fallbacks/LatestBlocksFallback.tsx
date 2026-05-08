@@ -10,7 +10,7 @@ const LatestBlocksFallback = () => {
       <Box color="text.secondary" textStyle="sm">Failed to load data. Please try again later.</Box>
       <VStack rowGap={ 3 } mt={ 3 }>
         { Array.from({ length: 2 }).map((_, index) => (
-          <Box key={ index } width="100%" p={ 3 } borderRadius="md" border="1px solid" borderColor="border.divider">
+          <Box key={ index } width="100%" p={ 3 } borderRadius="md" border="1px solid" borderColor="border.card" bgColor="bg.surface">
             <Flex alignItems="center" w="100%">
               <IconSvg name="block" boxSize={ 5 } color={{ _light: 'gray.300', _dark: 'whiteAlpha.300' }}/>
               <FallbackBox w="100px" bgColor={{ _light: 'blue.50', _dark: 'blue.800' }} ml={ 2 }/>

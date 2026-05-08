@@ -62,6 +62,9 @@ const StatsWidget = ({
       <Flex
         alignItems="center"
         bgColor={ isLoading ? { _light: 'blackAlpha.50', _dark: 'whiteAlpha.50' } : { _light: 'theme.stats.bg._light', _dark: 'theme.stats.bg._dark' } }
+        borderWidth="1px"
+        borderStyle="solid"
+        borderColor="border.card"
         p={ 3 }
         borderRadius="base"
         justifyContent="space-between"

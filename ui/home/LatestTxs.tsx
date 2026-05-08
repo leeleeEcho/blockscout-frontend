@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
 import { route } from 'nextjs-routes';
@@ -41,7 +41,7 @@ const LatestTxs = () => {
     return (
       <>
         <SocketNewItemsNotice borderBottomRadius={ 0 } url={ txsUrl } num={ num } showErrorAlert={ showErrorAlert } isLoading={ isPlaceholderData }/>
-        <Box mb={ 3 } display={{ base: 'block', lg: 'none' }} textStyle="sm">
+        <VStack mb={ 3 } mt={ 1 } gap={ 1 } alignItems="stretch" display={{ base: 'flex', lg: 'none' }} textStyle="sm">
           { data.slice(0, txsCount).map(((tx, index) => (
             <LatestTxsItemMobile
               key={ tx.hash + (isPlaceholderData ? index : '') }
@@ -49,9 +49,9 @@ const LatestTxs = () => {
               isLoading={ isPlaceholderData }
             />
           ))) }
-        </Box>
+        </VStack>
         <AddressHighlightProvider>
-          <Box mb={ 3 } display={{ base: 'none', lg: 'block' }} textStyle="sm">
+          <VStack mb={ 3 } mt={ 1 } gap={ 1 } alignItems="stretch" display={{ base: 'none', lg: 'flex' }} textStyle="sm">
             { data.slice(0, txsCount).map(((tx, index) => (
               <LatestTxsItem
                 key={ tx.hash + (isPlaceholderData ? index : '') }
@@ -59,7 +59,7 @@ const LatestTxs = () => {
                 isLoading={ isPlaceholderData }
               />
             ))) }
-          </Box>
+          </VStack>
         </AddressHighlightProvider>
         <Flex justifyContent="center">
           <Link textStyle="sm" loading={ isPlaceholderData } href={ txsUrl }>View all transactions</Link>

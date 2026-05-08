@@ -7,7 +7,7 @@ interface Props {
 }
 
 const AppErrorTitle = ({ title }: Props) => {
-  return <Heading mt={ 8 } textStyle="heading.xl" as="h1">{ title }</Heading>;
+  return <Heading mt={ 8 } textStyle="heading.xl" as="h1" fontFamily="display">{ title }</Heading>;
 };
 
 export default AppErrorTitle;

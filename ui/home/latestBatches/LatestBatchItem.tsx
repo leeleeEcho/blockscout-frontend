@@ -24,7 +24,7 @@ const LatestBatchItem = ({ number, timestamp, txCount, status, isLoading, animat
       animation={ animation }
       borderRadius="md"
       border="1px solid"
-      borderColor="border.divider"
+      borderColor="border.card"
       p={ 3 }
     >
       <Flex alignItems="center" overflow="hidden" w="100%" mb={ 3 }>

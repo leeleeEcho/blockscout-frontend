@@ -11,6 +11,9 @@ const ChainIndicatorsContainer = ({ children }: Props) => {
       px={{ base: 3, lg: 4 }}
       py={ 3 }
       borderRadius="base"
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor="border.card"
       bgColor={{ _light: 'theme.stats.bg._light', _dark: 'theme.stats.bg._dark' }}
       columnGap={{ base: 3, lg: 4 }}
       rowGap={ 0 }

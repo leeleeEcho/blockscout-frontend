@@ -14,6 +14,7 @@ const externalFontsDomains = (() => {
     return [
       config.UI.fonts.heading?.url,
       config.UI.fonts.body?.url,
+      config.UI.fonts.display?.url,
     ]
       .filter(Boolean)
       .map((urlString) => new URL(urlString))
