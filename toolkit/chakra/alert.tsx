@@ -7,7 +7,10 @@ import IndicatorIcon from 'icons/info_filled.svg';
 import { CloseButton } from './close-button';
 import { Skeleton } from './skeleton';
 
-export interface AlertProps extends Omit<ChakraAlert.RootProps, 'title'> {
+export interface AlertProps extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
+
+  /** 含主题 recipe 的 `announcement`（Chakra 默认类型未生成此项） */
+  variant?: ChakraAlert.RootProps['variant'] | 'announcement';
   startElement?: React.ReactNode;
   endElement?: React.ReactNode;
   descriptionProps?: AlertDescriptionProps;
@@ -33,6 +36,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       size,
       showIcon = false,
       descriptionProps,
+      variant,
       ...rest
     } = props;
 
@@ -63,7 +67,12 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 
     return (
       <Skeleton loading={ loading } asChild>
-        <ChakraAlert.Root ref={ ref } size={ size ?? { base: 'sm', lg: 'md' } } { ...rest }>
+        <ChakraAlert.Root
+          ref={ ref }
+          size={ size ?? { base: 'sm', lg: 'md' } }
+          variant={ variant as ChakraAlert.RootProps['variant'] }
+          { ...rest }
+        >
           { iconElement }
           { children ? (
             <ChakraAlert.Content>

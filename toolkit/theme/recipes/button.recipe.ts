@@ -329,24 +329,25 @@ export const recipe = defineRecipe({
         },
       },
       pagination: {
-        borderWidth: '2px',
+        borderWidth: '1px',
         borderStyle: 'solid',
-        bg: 'transparent',
-        color: 'button.pagination.fg',
+        fontWeight: '500',
+        bg: 'button.pagination.bg',
+        color: 'button.pagination.icon',
         borderColor: 'button.pagination.border',
         _hover: {
-          bg: 'transparent',
-          color: 'hover',
-          borderColor: 'hover',
+          bg: 'button.pagination.bg.hover',
+          borderColor: 'button.pagination.border.hover',
+          color: 'button.pagination.icon.hover',
         },
         _selected: {
-          bg: 'selected.control.bg',
-          color: 'selected.control.text',
-          borderColor: 'transparent',
+          bg: 'button.pagination.bg',
+          color: 'text.highlight',
+          borderColor: 'button.pagination.border',
           _hover: {
-            bg: 'selected.control.bg',
-            color: 'selected.control.text',
-            borderColor: 'transparent',
+            bg: 'button.pagination.bg.hover',
+            color: 'text.highlight',
+            borderColor: 'button.pagination.border.hover',
           },
         },
       },
@@ -391,6 +392,14 @@ export const recipe = defineRecipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'pagination',
+      css: {
+        borderRadius: '10px',
+      },
+    },
+  ],
   defaultVariants: {
     size: 'md',
     variant: 'solid',

@@ -50,6 +50,7 @@ export const recipe = defineSlotRecipe({
           color: 'alert.fg',
         },
       },
+      announcement: {},
     },
 
     inline: {
@@ -147,6 +148,50 @@ export const recipe = defineSlotRecipe({
       variant: 'subtle',
       css: {
         root: { bg: 'alert.bg.error' },
+      },
+    },
+    {
+      variant: 'announcement',
+      css: {
+        root: {
+          position: 'relative',
+          alignItems: 'center',
+          borderRadius: '10px',
+          py: '10px',
+          pr: '5',
+          pl: 0,
+          bg: 'alert.announcement.bg',
+          color: 'alert.announcement.fg',
+          borderWidth: 0,
+          _before: {
+            content: '""',
+            position: 'absolute',
+            left: 0,
+            top: '50%',
+            width: '4px',
+            height: '20px',
+            transform: 'translateY(-50%)',
+            bg: 'alert.announcement.accent',
+            borderTopRightRadius: 'sm',
+            borderBottomRightRadius: 'sm',
+          },
+        },
+        content: {
+          flex: 1,
+          ps: '6',
+          minW: 0,
+          gap: '5',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        },
+        description: {
+          textStyle: 'sm',
+          lineHeight: '20px',
+          letterSpacing: '0.5px',
+        },
+        indicator: {
+          display: 'none',
+        },
       },
     },
   ],

@@ -128,10 +128,19 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
       },
       pagination: {
         fg: {
-          DEFAULT: { value: { _light: '{colors.blackAlpha.800}', _dark: '{colors.gray.50}' } },
+          DEFAULT: { value: { _light: '{colors.blackAlpha.800}', _dark: 'rgba(255, 255, 255, 0.55)' } },
         },
         border: {
-          DEFAULT: { value: { _light: '{colors.gray.100}', _dark: '{colors.whiteAlpha.100}' } },
+          DEFAULT: { value: { _light: '{colors.gray.200}', _dark: 'rgba(255, 255, 255, 0.12)' } },
+          hover: { value: { _light: '{colors.gray.300}', _dark: 'rgba(255, 255, 255, 0.18)' } },
+        },
+        bg: {
+          DEFAULT: { value: { _light: '{colors.white}', _dark: 'rgba(255, 255, 255, 0.06)' } },
+          hover: { value: { _light: '{colors.gray.50}', _dark: 'rgba(255, 255, 255, 0.09)' } },
+        },
+        icon: {
+          DEFAULT: { value: { _light: '{colors.blackAlpha.500}', _dark: 'rgba(255, 255, 255, 0.4)' } },
+          hover: { value: { _light: '{colors.blackAlpha.700}', _dark: 'rgba(255, 255, 255, 0.55)' } },
         },
       },
       hero: {
@@ -280,6 +289,13 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
         success: { value: { _light: '{colors.green.100}', _dark: '{colors.green.900}' } },
         error: { value: { _light: '{colors.red.100}', _dark: '{colors.red.900}' } },
       },
+      // AxBlade 顶栏公告 / Figma 99:17537：divider 底、左侧 4px 高亮条、正文 75% 白、次要链接色
+      announcement: {
+        bg: { value: { _light: '{colors.gray.100}', _dark: '{colors.gray.600}' } },
+        fg: { value: { _light: '{colors.text.primary}', _dark: 'rgba(255, 255, 255, 0.75)' } },
+        accent: { value: { _light: '{colors.theme.text.highlight._light}', _dark: '{colors.theme.text.highlight._dark}' } },
+        linkFg: { value: { _light: '{colors.theme.text.secondary._light}', _dark: '#97A6A0' } },
+      },
     },
     toast: {
       fg: {
@@ -296,7 +312,7 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
     },
     input: {
       fg: {
-        DEFAULT: { value: { _light: '{colors.gray.800}', _dark: '{colors.gray.50}' } },
+        DEFAULT: { value: '{colors.text.primary}' },
         error: { value: '{colors.text.error}' },
       },
       bg: {
@@ -304,19 +320,22 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
         readOnly: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' } },
       },
       border: {
-        DEFAULT: { value: { _light: '{colors.gray.100}', _dark: '{colors.gray.600}' } },
-        hover: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.500}' } },
-        focus: { value: '{colors.hover}' },
-        filled: { value: { _light: '{colors.gray.100}', _dark: '{colors.gray.600}' } },
+        // 与 axblade-color-tokens：divider 晓雾白 / 岩灰绿；聚焦环品牌主绿 #00FFB2
+        DEFAULT: { value: '{colors.border.divider}' },
+        // Hover：Primary-Frame / 静谧森林 #00664E（1px solid 由组件 borderWidth 控制）
+        hover: { value: '{colors.green.700}' },
+        focus: { value: '{colors.green.500}' },
+        filled: { value: '{colors.border.divider}' },
         readOnly: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' } },
         error: { value: '{colors.red.500}' },
       },
       placeholder: {
-        DEFAULT: { value: { _light: '{colors.gray.400}', _dark: '{colors.gray.500}' } },
+        DEFAULT: { value: '{colors.text.secondary}' },
         error: { value: '{colors.red.500}' },
       },
       element: {
-        DEFAULT: { value: { _light: '{colors.gray.400}', _dark: '{colors.gray.500}' } },
+        DEFAULT: { value: '{colors.text.secondary}' },
+        hover: { value: '{colors.text.primary}' },
       },
     },
     field: {
@@ -485,9 +504,22 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
     checkbox: {
       control: {
         border: {
-          DEFAULT: { value: { _light: '{colors.gray.100}', _dark: '{colors.gray.700}' } },
-          hover: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.500}' } },
+          // 深色稿：默认 #757575，悬停亮薄荷绿 #00E699；浅色沿用灰阶 / 品牌主绿
+          DEFAULT: { value: { _light: '{colors.gray.300}', _dark: '#757575' } },
+          hover: { value: { _light: '{colors.green.500}', _dark: '#00E699' } },
           readOnly: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' } },
+        },
+        bg: {
+          // 深色稿：方块填充 #4D4D4D；浅色仍为板块浅底
+          DEFAULT: { value: { _light: '{colors.theme.stats.bg._light}', _dark: '#4D4D4D' } },
+          checked: { value: { _light: '{colors.theme.stats.bg._light}', _dark: '#4D4D4D' } },
+        },
+      },
+      label: {
+        fg: {
+          DEFAULT: { value: { _light: '{colors.text.secondary}', _dark: '#B3B3B3' } },
+          hover: { value: { _light: '{colors.text.primary}', _dark: '#FFFFFF' } },
+          checked: { value: '{colors.green.500}' },
         },
       },
     },

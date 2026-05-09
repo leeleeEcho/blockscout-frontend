@@ -7,8 +7,10 @@ export const recipe = defineRecipe({
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: '0',
-    color: 'white',
-    borderWidth: '2px',
+    position: 'relative',
+    color: 'transparent',
+    borderWidth: '1px',
+    borderStyle: 'solid',
     borderColor: 'transparent',
     focusVisibleRing: 'outside',
     _icon: {
@@ -36,6 +38,7 @@ export const recipe = defineRecipe({
 
     variant: {
       solid: {
+        bg: 'checkbox.control.bg',
         borderColor: 'checkbox.control.border',
         _hover: {
           borderColor: 'checkbox.control.border.hover',
@@ -54,12 +57,33 @@ export const recipe = defineRecipe({
           },
         },
         '&:is([data-state=checked], [data-state=indeterminate])': {
-          bg: 'selected.option.bg',
-          color: 'white',
-          borderColor: 'selected.option.bg',
+          bg: 'checkbox.control.bg.checked',
+          borderColor: 'green.500',
+          color: 'transparent',
           _hover: {
-            bg: 'hover',
-            borderColor: 'hover',
+            bg: 'checkbox.control.bg.checked',
+            borderColor: 'green.500',
+          },
+          '& svg': {
+            display: 'none',
+          },
+          _after: {
+            content: '""',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            w: '3.5',
+            h: '3.5',
+            borderRadius: '2px',
+            bg: 'green.500',
+          },
+        },
+        '&:is([data-state=indeterminate])': {
+          _after: {
+            width: '2.5',
+            height: '0.5',
+            borderRadius: '2px',
           },
         },
       },

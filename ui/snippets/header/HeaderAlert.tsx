@@ -12,7 +12,9 @@ const maintenanceAlertHtml = config.UI.maintenanceAlert.message || '';
 const HeaderAlert = (props: FlexProps) => {
   return (
     <Flex flexDir="column" rowGap={ 1 } mb={{ base: 6, lg: 3 }} _empty={{ display: 'none' }} { ...props }>
-      { maintenanceAlertHtml && <AlertWithExternalHtml html={ maintenanceAlertHtml } status="info" showIcon/> }
+      { maintenanceAlertHtml && (
+        <AlertWithExternalHtml html={ maintenanceAlertHtml } status="info" variant="announcement" showIcon={ false }/>
+      ) }
       <IndexingBlocksAlert/>
     </Flex>
   );

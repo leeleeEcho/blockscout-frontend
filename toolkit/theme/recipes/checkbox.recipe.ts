@@ -3,7 +3,7 @@ import { defineSlotRecipe } from '@chakra-ui/react';
 import { recipe as checkmarkRecipe } from './checkmark.recipe';
 
 export const recipe = defineSlotRecipe({
-  slots: [ 'root', 'control', 'label' ],
+  slots: [ 'root', 'control', 'label', 'indicator' ],
   className: 'chakra-checkbox',
   base: {
     root: {
@@ -19,6 +19,19 @@ export const recipe = defineSlotRecipe({
       _readOnly: {
         cursor: 'default',
       },
+      // 悬停在文案上时 control 无 :hover，同步绿边（品牌主绿）
+      '&:hover [data-scope="checkbox"][data-part="control"]': {
+        borderColor: 'checkbox.control.border.hover',
+      },
+      '&:focus-within [data-scope="checkbox"][data-part="control"]': {
+        borderColor: 'checkbox.control.border.hover',
+      },
+      '&:hover:not([data-state=checked]):not([data-state=indeterminate]) [data-scope="checkbox"][data-part="label"]': {
+        color: 'checkbox.label.fg.hover',
+      },
+      '&[data-state=checked] [data-scope="checkbox"][data-part="label"], &[data-state=indeterminate] [data-scope="checkbox"][data-part="label"]': {
+        color: 'checkbox.label.fg.checked',
+      },
     },
 
     control: checkmarkRecipe.base,
@@ -27,8 +40,21 @@ export const recipe = defineSlotRecipe({
       fontWeight: 'normal',
       userSelect: 'none',
       flexGrow: 1,
+      color: 'checkbox.label.fg',
+      transitionProperty: 'color',
+      transitionDuration: 'fast',
       _disabled: {
         opacity: 'control.disabled',
+      },
+    },
+
+    indicator: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      pointerEvents: 'none',
+      '& svg': {
+        display: 'none',
       },
     },
   },

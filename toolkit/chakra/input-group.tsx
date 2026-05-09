@@ -99,6 +99,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, InputGroupProps>(
     return (
       <Group
         ref={ combinedRef }
+        className="group"
         w="100%"
         css={{
           ...(startElement && {
@@ -112,7 +113,16 @@ export const InputGroup = React.forwardRef<HTMLDivElement, InputGroupProps>(
         { ...rest }
       >
         { startElement && (
-          <InputElement pointerEvents="none" ref={ startElementRef } px={ 0 } color="input.element" { ...startElementProps }>
+          <InputElement
+            pointerEvents="none"
+            ref={ startElementRef }
+            px={ 0 }
+            color="input.element"
+            transition="color 0.15s ease"
+            _groupHover={{ color: 'input.element.hover' }}
+            _groupFocusWithin={{ color: 'input.element' }}
+            { ...startElementProps }
+          >
             { startElement }
           </InputElement>
         ) }
@@ -129,7 +139,16 @@ export const InputGroup = React.forwardRef<HTMLDivElement, InputGroupProps>(
           });
         }) }
         { endElement && (
-          <InputElement placement="end" ref={ endElementRef } px={ 0 } color="input.element" { ...endElementProps }>
+          <InputElement
+            placement="end"
+            ref={ endElementRef }
+            px={ 0 }
+            color="input.element"
+            transition="color 0.15s ease"
+            _groupHover={{ color: 'input.element.hover' }}
+            _groupFocusWithin={{ color: 'input.element' }}
+            { ...endElementProps }
+          >
             { endElement }
           </InputElement>
         ) }

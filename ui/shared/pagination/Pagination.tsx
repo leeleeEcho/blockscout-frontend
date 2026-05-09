@@ -24,9 +24,10 @@ const Pagination = (props: Props) => {
     <Flex
       as="nav"
       alignItems="center"
+      gap={ 2 }
       { ...rest }
     >
-      <Skeleton loading={ showSkeleton } mr={ 3 }>
+      <Skeleton loading={ showSkeleton }>
         <Button
           variant="pagination"
           size="sm"
@@ -52,7 +53,6 @@ const Pagination = (props: Props) => {
         selected={ !showSkeleton }
         pointerEvents="none"
         loadingSkeleton={ showSkeleton }
-        mx={ 2 }
         minW={ 8 }
         px={ 2 }
       >

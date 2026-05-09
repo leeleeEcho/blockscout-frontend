@@ -72,13 +72,35 @@ export const recipe = defineRecipe({
           _invalid: {
             borderColor: 'input.border.error',
           },
+          // :placeholder-shown 与 :focus 同时成立时，需显式写 _focus，否则灰边会盖过聚焦绿边
+          _focus: {
+            borderColor: 'input.border.focus',
+            boxShadow: 'none',
+            _hover: {
+              borderColor: 'input.border.focus',
+            },
+          },
+          _focusVisible: {
+            borderColor: 'input.border.focus',
+            boxShadow: 'none',
+            _hover: {
+              borderColor: 'input.border.focus',
+            },
+          },
         },
         _hover: {
           borderColor: 'input.border.hover',
         },
         _focus: {
           borderColor: 'input.border.focus',
-          boxShadow: 'size.md',
+          boxShadow: 'none',
+          _hover: {
+            borderColor: 'input.border.focus',
+          },
+        },
+        _focusVisible: {
+          borderColor: 'input.border.focus',
+          boxShadow: 'none',
           _hover: {
             borderColor: 'input.border.focus',
           },

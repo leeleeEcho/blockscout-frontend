@@ -36,9 +36,10 @@ const SearchBarInput = (
   React.useImperativeHandle(ref, () => innerRef.current as HTMLFormElement, []);
   const isMobile = useIsMobile();
 
+  // 未配置时勿用 0px：否则默认/聚焦时边框宽度为 0，品牌绿边（input.border.focus）无法显示
   const borderWidthHeroBanner = useColorModeValue(
-    config.UI.homepage.heroBanner?.search?.border_width?.[0] ?? '0px',
-    config.UI.homepage.heroBanner?.search?.border_width?.[1] ?? '0px',
+    config.UI.homepage.heroBanner?.search?.border_width?.[0] ?? '1px',
+    config.UI.homepage.heroBanner?.search?.border_width?.[1] ?? '1px',
   );
 
   const handleChange = React.useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -90,25 +91,30 @@ const SearchBarInput = (
       name="search"
       boxSize={ 5 }
       mx={ 2 }
+      color="inherit"
     />
   );
 
   const endElement = (
     <>
-      <ClearButton onClick={ onClear } visible={ Boolean(value?.length) } mx={ 2 }/>
+      <ClearButton onClick={ onClear } visible={ Boolean(value?.length) } mx={ 2 } color="inherit"/>
       { !isMobile && (
         <Center
           boxSize="20px"
           mr={ 2 }
           borderRadius="sm"
           borderWidth="1px"
-          borderColor="input.element"
+          borderColor="border.divider"
         >
           /
         </Center>
       ) }
     </>
   );
+
+  const inputBg = isHeroBanner ? 'input.bg' : 'bg.surface';
+  // Hero：在渐变背景上用 divider 系描边 + 聚焦绿边；非 Hero 默认边框交给 input recipe
+  const heroOnlyBorder = isHeroBanner ? 'border.divider' : undefined;
 
   return (
     <chakra.form
@@ -118,7 +124,7 @@ const SearchBarInput = (
       onBlur={ onBlur }
       onClick={ onFormClick }
       w="100%"
-      backgroundColor="bg.primary"
+      bg="transparent"
       borderRadius="base"
       position="relative"
       zIndex={ isSuggestOpen ? 'modal' : 'auto' }
@@ -135,13 +141,29 @@ const SearchBarInput = (
           onChange={ handleChange }
           onFocus={ onFocus }
           tabIndex={ readOnly ? -1 : 0 }
-          borderWidth={ isHeroBanner ? borderWidthHeroBanner : '2px' }
+          readOnly={ readOnly }
+          borderWidth={ isHeroBanner ? borderWidthHeroBanner : '1px' }
           borderStyle="solid"
-          borderColor={{ _light: 'blackAlpha.100', _dark: 'whiteAlpha.200' }}
-          color={{ _light: 'black', _dark: 'white' }}
-          backgroundColor={{ base: isHeroBanner ? 'input.bg' : 'dialog.bg', lg: 'input.bg' }}
+          borderColor={ heroOnlyBorder }
+          color="input.fg"
+          bg={ inputBg }
+          caretColor="green.500"
+          _placeholder={{ color: 'input.placeholder' }}
           _hover={{ borderColor: 'input.border.hover' }}
-          _focusWithin={{ _placeholder: { color: 'gray.300' }, borderColor: 'input.border.focus', _hover: { borderColor: 'input.border.focus' } }}
+          _focus={{
+            borderColor: 'input.border.focus',
+            boxShadow: 'none',
+            _hover: { borderColor: 'input.border.focus' },
+          }}
+          _focusVisible={{
+            borderColor: 'input.border.focus',
+            boxShadow: 'none',
+            _hover: { borderColor: 'input.border.focus' },
+          }}
+          _disabled={{
+            opacity: 'control.disabled',
+            cursor: 'not-allowed',
+          }}
           enterKeyHint="search"
         />
       </InputGroup>
