@@ -7,7 +7,7 @@ import { useAppContext } from 'lib/contexts/app';
 import useNavItems, { isGroupItem } from 'lib/hooks/useNavItems';
 import IconSvg from 'ui/shared/IconSvg';
 import useIsAuth from 'ui/snippets/auth/useIsAuth';
-import NetworkIcon from 'ui/snippets/networkLogo/NetworkIcon';
+import NavigationCollapsedLogo from 'ui/snippets/networkLogo/NavigationCollapsedLogo';
 import NetworkLogo from 'ui/snippets/networkLogo/NetworkLogo';
 
 import NavigationPromoBanner from '../promoBanner/NavigationPromoBanner';
@@ -87,7 +87,7 @@ const NavigationDesktop = () => {
           <NetworkLogo/>
         </Box>
         <Box display={{ base: 'none', lg: isCollapsed === false ? 'none' : 'block', xl: isCollapsed ? 'block' : 'none' }}>
-          <NetworkIcon/>
+          <NavigationCollapsedLogo/>
         </Box>
       </Box>
       <Box as="nav" mt={ 6 } w="100%">

@@ -65,6 +65,12 @@ const UI = Object.freeze({
       'default': getExternalAssetFilePath('NEXT_PUBLIC_NETWORK_LOGO'),
       dark: getExternalAssetFilePath('NEXT_PUBLIC_NETWORK_LOGO_DARK'),
     },
+
+    /** 竖向导航收起时首页 logo（浅色 / 深色稿各一）；未设时见 NavigationCollapsedLogo 回退逻辑 */
+    logoCollapsed: {
+      'default': getExternalAssetFilePath('NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED'),
+      dark: getExternalAssetFilePath('NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED_DARK'),
+    },
     icon: {
       'default': getExternalAssetFilePath('NEXT_PUBLIC_NETWORK_ICON'),
       dark: getExternalAssetFilePath('NEXT_PUBLIC_NETWORK_ICON_DARK'),
@@ -88,6 +94,9 @@ const UI = Object.freeze({
     charts: parseEnvJson<Array<ChainIndicatorId>>(getEnvValue('NEXT_PUBLIC_HOMEPAGE_CHARTS')) || [],
     stats: homePageStats,
     heroBanner: parseEnvJson<HeroBannerConfig>(getEnvValue('NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG')),
+
+    /** 首页 Hero 底图；若设置则覆盖 `heroBanner.background` 中的 CSS 背景 */
+    heroBannerBackground: getExternalAssetFilePath('NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_BACKGROUND'),
     highlights: getExternalAssetFilePath('NEXT_PUBLIC_HOMEPAGE_HIGHLIGHTS_CONFIG'),
   },
   views,
@@ -125,6 +134,9 @@ const UI = Object.freeze({
   nativeCoinPrice: {
     isHidden: getEnvValue('NEXT_PUBLIC_HIDE_NATIVE_COIN_PRICE') === 'true' ? true : false,
   },
+
+  /** 顶栏「Chains」网络菜单（与 multichain / featured networks 入口） */
+  hideNetworkMenu: getEnvValue('NEXT_PUBLIC_HIDE_NETWORK_MENU') === 'true' ? true : false,
 });
 
 export default UI;

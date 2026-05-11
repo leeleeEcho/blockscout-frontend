@@ -91,6 +91,7 @@ export const homepageSchema = yup.object({
           const isUndefined = data === undefined;
           return isUndefined || heroBannerSchema.isValidSync(data);
         }),
+    NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_BACKGROUND: yup.string().test(urlTest),
 });
 
 const featuredNetworkSchema: yup.ObjectSchema<FeaturedNetwork> = yup
@@ -172,6 +173,8 @@ export const navigationSchema = yup.object({
       }),
     NEXT_PUBLIC_NETWORK_LOGO: yup.string().test(urlTest),
     NEXT_PUBLIC_NETWORK_LOGO_DARK: yup.string().test(urlTest),
+    NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED: yup.string().test(urlTest),
+    NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED_DARK: yup.string().test(urlTest),
     NEXT_PUBLIC_NETWORK_ICON: yup.string().test(urlTest),
     NEXT_PUBLIC_NETWORK_ICON_DARK: yup.string().test(urlTest),
 });
@@ -212,6 +215,7 @@ export const miscSchema = yup.object({
     NEXT_PUBLIC_HIDE_INDEXING_ALERT_BLOCKS: yup.boolean(),
     NEXT_PUBLIC_HIDE_INDEXING_ALERT_INT_TXS: yup.boolean(),
     NEXT_PUBLIC_HIDE_NATIVE_COIN_PRICE: yup.boolean(),
+    NEXT_PUBLIC_HIDE_NETWORK_MENU: yup.boolean(),
     NEXT_PUBLIC_MAINTENANCE_ALERT_MESSAGE: yup
     .mixed()
     .test(

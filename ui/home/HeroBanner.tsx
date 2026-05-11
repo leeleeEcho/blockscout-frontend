@@ -16,15 +16,21 @@ const BORDER_DEFAULT = 'none';
 
 const HeroBanner = () => {
 
-  const background = {
-    _light:
-      config.UI.homepage.heroBanner?.background?.[0] ||
-      BACKGROUND_DEFAULT,
-    _dark:
-      config.UI.homepage.heroBanner?.background?.[1] ||
-      config.UI.homepage.heroBanner?.background?.[0] ||
-      BACKGROUND_DEFAULT,
-  };
+  const heroBgUrl = config.UI.homepage.heroBannerBackground;
+  const background = heroBgUrl ?
+    {
+      _light: `no-repeat center/cover url(${ heroBgUrl })`,
+      _dark: `no-repeat center/cover url(${ heroBgUrl })`,
+    } :
+    {
+      _light:
+        config.UI.homepage.heroBanner?.background?.[0] ||
+        BACKGROUND_DEFAULT,
+      _dark:
+        config.UI.homepage.heroBanner?.background?.[1] ||
+        config.UI.homepage.heroBanner?.background?.[0] ||
+        BACKGROUND_DEFAULT,
+    };
 
   const textColor = {
     _light:
