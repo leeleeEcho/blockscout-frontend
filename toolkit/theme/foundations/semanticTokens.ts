@@ -273,7 +273,21 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
     'switch': {
       primary: {
         bg: {
-          DEFAULT: { value: { _light: '{colors.gray.300}', _dark: '{colors.whiteAlpha.400}' } },
+          DEFAULT: { value: { _light: '{colors.gray.200}', _dark: '{colors.whiteAlpha.300}' } },
+        },
+        border: {
+          DEFAULT: { value: { _light: '{colors.gray.300}', _dark: '{colors.whiteAlpha.200}' } },
+        },
+        checked: {
+          track: {
+            DEFAULT: { value: { _light: '{colors.gray.200}', _dark: '{colors.whiteAlpha.200}' } },
+            hover: { value: { _light: '{colors.gray.300}', _dark: '{colors.whiteAlpha.300}' } },
+          },
+          border: {
+            DEFAULT: { value: { _light: '{colors.green.700}', _dark: '{colors.green.500}' } },
+            hover: { value: { _light: '{colors.green.600}', _dark: '{colors.green.400}' } },
+          },
+          thumb: { value: { _light: '{colors.green.700}', _dark: '{colors.green.500}' } },
         },
       },
     },

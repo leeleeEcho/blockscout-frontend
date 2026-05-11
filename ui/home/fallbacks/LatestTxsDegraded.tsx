@@ -14,6 +14,7 @@ import { Link } from 'toolkit/chakra/link';
 
 import LatestTxsItem from '../LatestTxsItem';
 import LatestTxsItemMobile from '../LatestTxsItemMobile';
+import { homeViewAllFooterLinkProps } from '../utils';
 import LatestTxsDegradedNewItems from './LatestTxsDegradedNewItems';
 import LatestTxsFallback from './LatestTxsFallback';
 import { useHomeRpcDataContext } from './rpcDataContext';
@@ -70,8 +71,10 @@ const LatestTxsDegraded = ({ maxNum }: Props) => {
           ))) }
         </VStack>
       </AddressHighlightProvider>
-      <Flex justifyContent="center">
-        <Link textStyle="sm" loading={ isLoading } href={ txsUrl }>View all transactions</Link>
+      <Flex w="100%">
+        <Link { ...homeViewAllFooterLinkProps } loading={ isLoading } href={ txsUrl }>
+          View all transactions
+        </Link>
       </Flex>
     </>
   );

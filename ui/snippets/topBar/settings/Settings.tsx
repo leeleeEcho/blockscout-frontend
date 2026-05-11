@@ -1,4 +1,4 @@
-import { Flex, Separator, VStack } from '@chakra-ui/react';
+import { Flex, Separator, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
 import { IconButton } from 'toolkit/chakra/icon-button';
@@ -41,9 +41,19 @@ const Settings = () => {
         <Flex alignItems="center">
           <PopoverTrigger>
             <IconButton
-              variant="link"
-              size="2xs"
-              borderRadius="sm"
+              variant="outline"
+              size="md"
+              boxSize={ 9 }
+              minW={ 9 }
+              minH={ 9 }
+              borderRadius="4px"
+              borderWidth="1px"
+              borderColor={ popover.open ? 'green.700' : 'text.highlight' }
+              color={ popover.open ? 'green.500' : 'text.highlight' }
+              bg={ popover.open ? 'green.700' : { base: 'white', _dark: 'whiteAlpha.100' } }
+              _hover={ popover.open ?
+                { bg: 'green.700', borderColor: 'green.700', color: 'green.500' } :
+                { bg: { base: 'blackAlpha.50', _dark: 'whiteAlpha.200' }, borderColor: 'text.highlight', color: 'text.highlight' } }
               aria-label="User settings"
             >
               <IconSvg name="gear"/>
@@ -51,8 +61,19 @@ const Settings = () => {
           </PopoverTrigger>
         </Flex>
       </Tooltip>
-      <PopoverContent overflowY="hidden" w="auto" fontSize="sm">
-        <PopoverBody>
+      <PopoverContent overflowY="hidden" w="auto" minW="280px" fontSize="sm" borderRadius="lg">
+        <PopoverBody pt={ 4 } px={ 4 } pb={ 4 }>
+          <Text
+            as="h2"
+            fontSize="xs"
+            fontWeight={ 700 }
+            letterSpacing="0.1em"
+            textTransform="uppercase"
+            color="text.primary"
+            mb={ 4 }
+          >
+            Settings
+          </Text>
           <SettingsColorTheme onSelect={ popover.onClose }/>
           <Separator my={ 3 }/>
           <SettingsIdentIcon/>

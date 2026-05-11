@@ -25,6 +25,7 @@ import LatestBlocksDegraded from './fallbacks/LatestBlocksDegraded';
 import { useHomeRpcDataContext } from './fallbacks/rpcDataContext';
 import { useHomeDataContext } from './homeDataContext';
 import LatestBlocksItem from './LatestBlocksItem';
+import { homeViewAllFooterLinkProps } from './utils';
 
 const LatestBlocks = () => {
   const isMobile = useIsMobile();
@@ -71,8 +72,14 @@ const LatestBlocks = () => {
               />
             ))) }
           </VStack>
-          <Flex justifyContent="center">
-            <Link textStyle="sm" href={ route({ pathname: '/blocks' }) } loading={ blocksQuery.isPlaceholderData }>View all blocks</Link>
+          <Flex w="100%">
+            <Link
+              { ...homeViewAllFooterLinkProps }
+              href={ route({ pathname: '/blocks' }) }
+              loading={ blocksQuery.isPlaceholderData }
+            >
+              View all blocks
+            </Link>
           </Flex>
         </>
       );

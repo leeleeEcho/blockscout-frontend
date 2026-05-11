@@ -55,13 +55,6 @@ export function getDefaultColorTheme(colorMode: ColorMode) {
 }
 
 export const COLOR_THEMES: Array<ColorTheme> = [
-  {
-    id: 'light',
-    label: 'Light',
-    colorMode: 'light',
-    hex: '#FCFCFC',
-    sampleBg: 'linear-gradient(154deg, #DEE6E3 50%, rgba(242, 242, 242, 0) 330.86%)',
-  },
   // {
   //   id: 'dim',
   //   label: 'Dim',
@@ -82,5 +75,12 @@ export const COLOR_THEMES: Array<ColorTheme> = [
     colorMode: 'dark',
     hex: '#090909',
     sampleBg: 'linear-gradient(161deg, #111111 9.37%, #003B2E 92.52%)',
+  },
+  {
+    id: 'light',
+    label: 'Light',
+    colorMode: 'light',
+    hex: '#FCFCFC',
+    sampleBg: 'linear-gradient(154deg, #DEE6E3 50%, rgba(242, 242, 242, 0) 330.86%)',
   },
 ];

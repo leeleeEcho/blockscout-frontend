@@ -14,6 +14,7 @@ import useInitialList from 'client/shared/lists/useInitialList';
 import { Link } from 'toolkit/chakra/link';
 
 import LatestBlocksItem from '../LatestBlocksItem';
+import { homeViewAllFooterLinkProps } from '../utils';
 import LatestBlocksFallback from './LatestBlocksFallback';
 import { useHomeRpcDataContext } from './rpcDataContext';
 
@@ -60,8 +61,14 @@ const LatestBlocksDegraded = ({ maxNum }: Props) => {
           />
         ))) }
       </VStack>
-      <Flex justifyContent="center">
-        <Link textStyle="sm" href={ route({ pathname: '/blocks' }) } loading={ isLoading }>View all blocks</Link>
+      <Flex w="100%">
+        <Link
+          { ...homeViewAllFooterLinkProps }
+          href={ route({ pathname: '/blocks' }) }
+          loading={ isLoading }
+        >
+          View all blocks
+        </Link>
       </Flex>
     </>
   );

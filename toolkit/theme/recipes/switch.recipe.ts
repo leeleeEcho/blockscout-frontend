@@ -82,12 +82,17 @@ export const recipe = defineSlotRecipe({
       primary: {
         control: {
           borderRadius: 'full',
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          borderColor: 'switch.primary.border',
           bg: 'switch.primary.bg',
           focusVisibleRing: 'outside',
           _checked: {
-            bg: 'selected.option.bg',
+            bg: 'switch.primary.checked.track',
+            borderColor: 'switch.primary.checked.border',
             _hover: {
-              bg: 'hover',
+              bg: 'switch.primary.checked.track.hover',
+              borderColor: 'switch.primary.checked.border.hover',
             },
           },
         },
@@ -98,7 +103,7 @@ export const recipe = defineSlotRecipe({
           scale: '0.8',
           boxShadow: 'sm',
           _checked: {
-            bg: 'white',
+            bg: 'switch.primary.checked.thumb',
           },
         },
       },

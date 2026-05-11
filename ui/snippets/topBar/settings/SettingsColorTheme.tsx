@@ -80,7 +80,7 @@ const SettingsColorTheme = ({ onSelect }: Props) => {
     <div>
       <Box fontWeight={ 600 }>Color theme</Box>
       <Box color="text.secondary" mt={ 1 } mb={ 2 }>{ activeTheme?.label }</Box>
-      <Flex>
+      <Flex gap={ 2 }>
         { COLOR_THEMES.map((theme) => {
           return (
             <SettingsSample
@@ -89,6 +89,8 @@ const SettingsColorTheme = ({ onSelect }: Props) => {
               value={ theme.id }
               bg={ theme.sampleBg }
               isActive={ theme.id === activeThemeId }
+              appearance="theme"
+              themeIcon={ theme.colorMode === 'dark' ? 'moon' : 'sun' }
               onClick={ handleSelect }
             />
           );

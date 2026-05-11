@@ -18,6 +18,7 @@ import SocketNewItemsNotice from 'ui/shared/SocketNewItemsNotice';
 import LatestTxsDegraded from './fallbacks/LatestTxsDegraded';
 import LatestTxsItem from './LatestTxsItem';
 import LatestTxsItemMobile from './LatestTxsItemMobile';
+import { homeViewAllFooterLinkProps } from './utils';
 
 const zetachainFeature = config.features.zetachain;
 
@@ -61,8 +62,10 @@ const LatestTxs = () => {
             ))) }
           </VStack>
         </AddressHighlightProvider>
-        <Flex justifyContent="center">
-          <Link textStyle="sm" loading={ isPlaceholderData } href={ txsUrl }>View all transactions</Link>
+        <Flex w="100%">
+          <Link { ...homeViewAllFooterLinkProps } loading={ isPlaceholderData } href={ txsUrl }>
+            View all transactions
+          </Link>
         </Flex>
       </>
     );
