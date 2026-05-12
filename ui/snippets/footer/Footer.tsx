@@ -14,6 +14,7 @@ import { Link } from 'toolkit/chakra/link';
 import { Skeleton } from 'toolkit/chakra/skeleton';
 import { copy } from 'toolkit/utils/htmlEntities';
 import IconSvg from 'ui/shared/IconSvg';
+import { GradientFrameDivider } from 'ui/shared/layout/GradientFrameDivider';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
@@ -163,8 +164,6 @@ const Footer = () => {
 
   const containerProps: HTMLChakraProps<'div'> = {
     as: 'footer',
-    borderTopWidth: '1px',
-    borderTopColor: 'border.divider',
   };
 
   const contentProps: GridProps = {
@@ -195,6 +194,7 @@ const Footer = () => {
   if (config.UI.footer.links) {
     return (
       <Box { ...containerProps }>
+        <GradientFrameDivider axis="horizontal"/>
         <Grid { ...contentProps }>
           <div>
             { renderNetworkInfo() }
@@ -235,6 +235,7 @@ const Footer = () => {
 
   return (
     <Box { ...containerProps }>
+      <GradientFrameDivider axis="horizontal"/>
       <Grid
         { ...contentProps }
         gridTemplateAreas={{

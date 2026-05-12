@@ -4,6 +4,7 @@ import React from 'react';
 import config from 'configs/app';
 import useNavItems, { isGroupItem } from 'lib/hooks/useNavItems';
 import RewardsButton from 'ui/rewards/RewardsButton';
+import { GradientFrameDivider } from 'ui/shared/layout/GradientFrameDivider';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import useIsAuth from 'ui/snippets/auth/useIsAuth';
 import NetworkLogo from 'ui/snippets/networkLogo/NetworkLogo';
@@ -11,7 +12,6 @@ import UserProfileDesktop from 'ui/snippets/user/UserProfileDesktop';
 
 import NavigationPromoBanner from '../promoBanner/NavigationPromoBanner';
 import RollupStageBadge from '../RollupStageBadge';
-import TestnetBadge from '../TestnetBadge';
 import NavLink from './NavLink';
 import NavLinkGroup from './NavLinkGroup';
 
@@ -31,7 +31,7 @@ const NavigationDesktop = () => {
   }, [ accountNavItems, isAuth ]);
 
   return (
-    <Box borderColor="border.divider" borderBottomWidth="1px">
+    <Box>
       <Flex
         display={{ base: 'none', lg: 'flex' }}
         alignItems="center"
@@ -41,7 +41,6 @@ const NavigationDesktop = () => {
         m="0 auto"
       >
         <NetworkLogo/>
-        <TestnetBadge ml={ 3 }/>
         <RollupStageBadge ml={ 3 }/>
         <chakra.nav ml="auto">
           <Flex as="ul" columnGap={ 2 } alignItems="center">
@@ -66,6 +65,7 @@ const NavigationDesktop = () => {
           <UserProfileDesktop buttonSize="sm"/>
         </Flex>
       </Flex>
+      <GradientFrameDivider axis="horizontal"/>
     </Box>
   );
 };

@@ -6,13 +6,13 @@ import * as cookies from 'client/shared/storage/cookies';
 import { useAppContext } from 'lib/contexts/app';
 import useNavItems, { isGroupItem } from 'lib/hooks/useNavItems';
 import IconSvg from 'ui/shared/IconSvg';
+import { GradientFrameDivider } from 'ui/shared/layout/GradientFrameDivider';
 import useIsAuth from 'ui/snippets/auth/useIsAuth';
 import NavigationCollapsedLogo from 'ui/snippets/networkLogo/NavigationCollapsedLogo';
 import NetworkLogo from 'ui/snippets/networkLogo/NetworkLogo';
 
 import NavigationPromoBanner from '../promoBanner/NavigationPromoBanner';
 import RollupStageBadge from '../RollupStageBadge';
-import TestnetBadge from '../TestnetBadge';
 import NavLink from './NavLink';
 import NavLinkGroup from './NavLinkGroup';
 import NavLinkRewards from './NavLinkRewards';
@@ -56,8 +56,6 @@ const NavigationDesktop = () => {
       position="relative"
       flexDirection="column"
       alignItems="stretch"
-      borderRight="1px solid"
-      borderColor="border.divider"
       px={{ lg: isExpanded ? 6 : 4, xl: isCollapsed ? 4 : 6 }}
       pt={ 12 }
       pb={ 6 }
@@ -67,7 +65,6 @@ const NavigationDesktop = () => {
       transitionDuration="normal"
       transitionTimingFunction="ease"
     >
-      <TestnetBadge position="absolute" pl={ 3 } w="49px" top="34px"/>
       <RollupStageBadge position="absolute" ml={{ lg: isExpanded ? 3 : '10px', xl: isCollapsed ? '10px' : 3 }} top="34px"/>
       <Box
         as="header"
@@ -134,6 +131,7 @@ const NavigationDesktop = () => {
         transitionDuration="normal"
         transitionTimingFunction="ease"
       />
+      <GradientFrameDivider axis="vertical" position="absolute" top={ 0 } right={ 0 } bottom={ 0 } zIndex={ 1 }/>
     </Flex>
   );
 };

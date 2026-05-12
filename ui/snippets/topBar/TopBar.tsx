@@ -9,6 +9,7 @@ import useProvider from 'client/shared/web3/useProvider';
 
 import config from 'configs/app';
 import { useAppContext } from 'lib/contexts/app';
+import { GradientFrameDivider } from 'ui/shared/layout/GradientFrameDivider';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
@@ -71,6 +72,7 @@ const TopBar = () => {
           </HStack>
         </HStack>
       </Flex>
+      <GradientFrameDivider axis="horizontal"/>
     </Box>
   );
 };

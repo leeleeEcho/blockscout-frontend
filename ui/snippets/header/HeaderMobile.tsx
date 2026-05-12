@@ -10,7 +10,6 @@ import UserProfileAuth0 from 'ui/snippets/user/profile/auth0/UserProfileMobile';
 import UserWalletMobile from 'ui/snippets/user/wallet/UserWalletMobile';
 
 import RollupStageBadge from '../navigation/RollupStageBadge';
-import TestnetBadge from '../navigation/TestnetBadge';
 import SearchBarMobile from '../searchBar/SearchBarMobile';
 import Burger from './Burger';
 
@@ -68,7 +67,6 @@ const HeaderMobile = ({ hideSearchButton, onGoToSearchResults }: Props) => {
         <Burger/>
         <Flex alignItems="center" flexGrow={ 1 } mx={ 2 }>
           <NetworkIcon/>
-          <TestnetBadge ml={ 2 }/>
           <RollupStageBadge ml={ 2 }/>
         </Flex>
         <Flex columnGap={ 2 }>
