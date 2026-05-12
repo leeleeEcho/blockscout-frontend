@@ -133,9 +133,9 @@ export const recipe = defineSlotRecipe({
           },
           _selected: {
             bgColor: 'selected.option.bg',
-            color: 'whiteAlpha.800',
+            color: 'selected.control.text',
             _hover: {
-              color: 'whiteAlpha.800',
+              color: 'selected.control.text',
               opacity: 0.76,
             },
           },

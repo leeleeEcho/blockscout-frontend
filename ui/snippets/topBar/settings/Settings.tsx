@@ -48,11 +48,21 @@ const Settings = () => {
               minH={ 9 }
               borderRadius="4px"
               borderWidth="1px"
-              borderColor={ popover.open ? 'green.700' : 'text.highlight' }
-              color={ popover.open ? 'green.500' : 'text.highlight' }
-              bg={ popover.open ? 'green.700' : { base: 'white', _dark: 'whiteAlpha.100' } }
+              borderColor={ popover.open ?
+                { base: 'green.700', _dark: 'green.500' } :
+                'text.highlight' }
+              color={ popover.open ?
+                { base: 'green.500', _dark: 'green.400' } :
+                'text.highlight' }
+              bg={ popover.open ?
+                { base: 'green.700', _dark: 'green.800' } :
+                { base: 'white', _dark: 'whiteAlpha.100' } }
               _hover={ popover.open ?
-                { bg: 'green.700', borderColor: 'green.700', color: 'green.500' } :
+                {
+                  bg: { base: 'green.700', _dark: 'green.800' },
+                  borderColor: { base: 'green.700', _dark: 'green.500' },
+                  color: { base: 'green.500', _dark: 'green.400' },
+                } :
                 { bg: { base: 'blackAlpha.50', _dark: 'whiteAlpha.200' }, borderColor: 'text.highlight', color: 'text.highlight' } }
               aria-label="User settings"
             >

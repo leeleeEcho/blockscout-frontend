@@ -53,8 +53,12 @@ if [ "$NEXT_PUBLIC_APP_ENV" != "pw" ]; then
     # Remove old sprite files
     rm -f $target_dir/sprite.*.svg
 
-    # Rename the new sprite file
+    # Rename the new sprite file (hashed URL for cache busting when env is set)
     mv $target_dir/sprite.svg "$target_dir/sprite.${HASH}.svg"
+
+    # Keep unhashed copy: IconSvg falls back to /icons/sprite.svg when NEXT_PUBLIC_ICON_SPRITE_HASH is unset
+    # (e.g. plain `npm run dev`), otherwise all sprite icons 404.
+    cp "$target_dir/sprite.${HASH}.svg" "$target_dir/sprite.svg"
 
     export NEXT_PUBLIC_ICON_SPRITE_HASH=${HASH}
 

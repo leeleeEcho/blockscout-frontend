@@ -58,11 +58,11 @@ export const recipe = defineRecipe({
         },
         '&:is([data-state=checked], [data-state=indeterminate])': {
           bg: 'checkbox.control.bg.checked',
-          borderColor: 'green.500',
+          borderColor: 'checkbox.control.accent.checked.border',
           color: 'transparent',
           _hover: {
             bg: 'checkbox.control.bg.checked',
-            borderColor: 'green.500',
+            borderColor: 'checkbox.control.accent.checked.border',
           },
           '& svg': {
             display: 'none',
@@ -76,7 +76,7 @@ export const recipe = defineRecipe({
             w: '3.5',
             h: '3.5',
             borderRadius: '2px',
-            bg: 'green.500',
+            bg: 'checkbox.control.accent.checked.fill',
           },
         },
         '&:is([data-state=indeterminate])': {

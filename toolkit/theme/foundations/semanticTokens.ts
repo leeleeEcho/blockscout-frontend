@@ -518,9 +518,9 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
     checkbox: {
       control: {
         border: {
-          // 深色稿：默认 #757575，悬停亮薄荷绿 #00E699；浅色沿用灰阶 / 品牌主绿
+          // 深色：悬停 #00E699；浅色：Secondary 静谧森林 green.700（#00664E）
           DEFAULT: { value: { _light: '{colors.gray.300}', _dark: '#757575' } },
-          hover: { value: { _light: '{colors.green.500}', _dark: '#00E699' } },
+          hover: { value: { _light: '{colors.green.700}', _dark: '#00E699' } },
           readOnly: { value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' } },
         },
         bg: {
@@ -528,12 +528,18 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
           DEFAULT: { value: { _light: '{colors.theme.stats.bg._light}', _dark: '#4D4D4D' } },
           checked: { value: { _light: '{colors.theme.stats.bg._light}', _dark: '#4D4D4D' } },
         },
+        accent: {
+          checked: {
+            border: { value: { _light: '{colors.green.700}', _dark: '{colors.green.500}' } },
+            fill: { value: { _light: '{colors.green.700}', _dark: '{colors.green.500}' } },
+          },
+        },
       },
       label: {
         fg: {
           DEFAULT: { value: { _light: '{colors.text.secondary}', _dark: '#B3B3B3' } },
           hover: { value: { _light: '{colors.text.primary}', _dark: '#FFFFFF' } },
-          checked: { value: '{colors.green.500}' },
+          checked: { value: { _light: '{colors.green.700}', _dark: '{colors.green.500}' } },
         },
       },
     },

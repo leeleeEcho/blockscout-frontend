@@ -76,7 +76,7 @@ const Stats = () => {
         <IconSvg
           isLoading={ isLoading }
           name="info"
-          boxSize={ 5 }
+          boxSize="14px"
           flexShrink={ 0 }
           cursor="pointer"
           color="icon.secondary"

@@ -72,7 +72,7 @@ const IntTxsIndexingStatus = () => {
       color="green.400"
       _hover={{ color: 'hover' }}
     >
-      <IconSvg name="info" boxSize={ 5 }/>
+      <IconSvg name="info" boxSize="14px" display="block"/>
       { data.indexed_internal_transactions_ratio && (
         <Text fontWeight={ 600 } textStyle="xs" color="inherit">
           { Math.floor(Number(data.indexed_internal_transactions_ratio) * 100) + '%' }

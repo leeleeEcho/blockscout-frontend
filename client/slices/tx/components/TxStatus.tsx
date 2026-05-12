@@ -10,9 +10,10 @@ export interface Props extends BadgeProps {
   status: Transaction['status'];
   errorText?: string | null;
   isLoading?: boolean;
+  visual?: 'default' | 'solid';
 }
 
-const TxStatus = ({ status, errorText, isLoading, ...rest }: Props) => {
+const TxStatus = ({ status, errorText, isLoading, visual = 'default', ...rest }: Props) => {
   if (status === undefined) {
     return null;
   }
@@ -35,7 +36,7 @@ const TxStatus = ({ status, errorText, isLoading, ...rest }: Props) => {
       break;
   }
 
-  return <StatusTag type={ type } text={ text } errorText={ errorText } loading={ isLoading } { ...rest }/>;
+  return <StatusTag type={ type } text={ text } errorText={ errorText } loading={ isLoading } visual={ visual } { ...rest }/>;
 };
 
 export default TxStatus;

@@ -43,6 +43,9 @@ const TableColumnFilter = ({ title, isFilled, isTouched, hasReset, onFilter, onR
           disabled={ !isTouched }
           onClick={ onFilterClick }
           w="fit-content"
+          _hover={{ bg: 'button.solid.bg', color: 'button.solid.text' }}
+          _active={{ bg: 'button.solid.bg', color: 'button.solid.text' }}
+          _expanded={{ bg: 'button.solid.bg', color: 'button.solid.text' }}
         >
           Filter
         </Button>

@@ -26,7 +26,7 @@ const InfoButton = ({ children, isLoading }: Props) => {
       pr={ isMobile ? 1 : 2 }
       loadingSkeleton={ isLoading }
     >
-      <IconSvg name="info" boxSize={ 6 } mr={ isMobile ? 0 : 1 }/>
+      <IconSvg name="info" boxSize="14px" mr={ isMobile ? 0 : 1 } display="block"/>
       { !isMobile && <span>Info</span> }
     </Button>
   );

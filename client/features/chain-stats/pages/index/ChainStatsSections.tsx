@@ -94,7 +94,7 @@ const ChainStatsSections = ({ isError, isLoading, displayedSections, interval, i
                 </Heading>
                 { isGasTrackerEnabled && section.id === 'gas' && homeStatsQuery.data && homeStatsQuery.data.gas_prices && (
                   <GasInfoTooltip data={ homeStatsQuery.data } dataUpdatedAt={ homeStatsQuery.dataUpdatedAt }>
-                    <IconSvg name="info" boxSize={ 5 } display="block" cursor="pointer" color="icon.secondary" _hover={{ color: 'hover' }}/>
+                    <IconSvg name="info" boxSize="14px" display="block" cursor="pointer" color="icon.secondary" _hover={{ color: 'hover' }}/>
                   </GasInfoTooltip>
                 ) }
               </Skeleton>
