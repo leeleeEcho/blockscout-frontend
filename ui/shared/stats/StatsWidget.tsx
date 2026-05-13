@@ -66,7 +66,7 @@ const StatsWidget = ({
         borderStyle="solid"
         borderColor="border.card"
         p={ 3 }
-        borderRadius="base"
+        borderRadius="sm"
         justifyContent="space-between"
         columnGap={ 2 }
         w="100%"
@@ -115,7 +115,7 @@ const StatsWidget = ({
             { valuePostfix && <chakra.span whiteSpace="pre">{ valuePostfix }</chakra.span> }
             { diff && Number(diff) > 0 && (
               <>
-                <Text ml={ 2 } mr={ 1 } color="green.500">
+                <Text ml={ 2 } mr={ 1 } color="text.success">
                   +{ diffFormatted || Number(diff).toLocaleString() }
                 </Text>
                 <Text color="text.secondary" textStyle="sm">({ diffPeriod })</Text>

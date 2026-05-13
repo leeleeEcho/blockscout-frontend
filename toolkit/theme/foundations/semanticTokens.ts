@@ -243,6 +243,9 @@ const semanticTokens: ThemingConfig['semanticTokens'] = {
       track: {
         DEFAULT: { value: { _light: '{colors.gray.100}', _dark: '{colors.whiteAlpha.100}' } },
       },
+      range: {
+        DEFAULT: { value: { _light: '{colors.theme.graph.line._light}', _dark: '{colors.theme.graph.line._dark}' } },
+      },
     },
     skeleton: {
       bg: {

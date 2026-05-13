@@ -4,12 +4,13 @@ import React from 'react';
 
 import { ChartResolution, CHART_RESOLUTION_LABELS } from '../../../types';
 
+import { useColorModeValue } from '../../../../../chakra/color-mode';
 import LineChartTooltipRow from './LineChartTooltipRow';
 
 const CLASS_NAME = 'LineChartTooltip__title';
 
 const LineChartTooltipTitle = ({ resolution = ChartResolution.DAY }: { resolution?: ChartResolution }) => {
-  const titleColor = useToken('colors', 'yellow.300');
+  const [ titleColor ] = useToken('colors', useColorModeValue('orange.600', 'yellow.300'));
   const resolutionTitle = CHART_RESOLUTION_LABELS.find(({ id }) => id === resolution)?.title || 'day';
 
   return (
@@ -17,7 +18,7 @@ const LineChartTooltipTitle = ({ resolution = ChartResolution.DAY }: { resolutio
       <text
         className={ CLASS_NAME }
         transform="translate(0,0)"
-        fill={ titleColor[0] }
+        fill={ titleColor }
         opacity={ 0 }
         dominantBaseline="hanging"
       >

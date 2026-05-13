@@ -10,7 +10,7 @@ const ChainIndicatorsContainer = ({ children }: Props) => {
     <Flex
       px={{ base: 3, lg: 4 }}
       py={ 3 }
-      borderRadius="base"
+      borderRadius="sm"
       borderWidth="1px"
       borderStyle="solid"
       borderColor="border.card"

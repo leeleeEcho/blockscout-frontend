@@ -5,8 +5,8 @@ import React from 'react';
 const CLASS_NAME = 'LineChartTooltip__line';
 
 const LineChartTooltipLine = () => {
-  const lineColor = useToken('colors', 'gray.400');
-  return <line className={ CLASS_NAME } stroke={ lineColor[0] } strokeDasharray="3"/>;
+  const [ lineColor ] = useToken('colors', 'border.divider');
+  return <line className={ CLASS_NAME } stroke={ lineColor } strokeDasharray="3"/>;
 };
 
 export default React.memo(LineChartTooltipLine);

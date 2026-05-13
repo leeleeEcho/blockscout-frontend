@@ -28,11 +28,11 @@ const ChainIndicatorsChart = ({ isLoading: isLoadingProp, value, valueDiff, char
     }
 
     if (value.includes('N/A')) {
-      return <Text fontWeight={ 700 } fontSize="30px" lineHeight="36px" opacity="control.disabled">{ mdash }</Text>;
+      return <Text fontWeight={ 700 } fontSize="30px" lineHeight="36px" color="text.primary" opacity="control.disabled">{ mdash }</Text>;
     }
 
     return (
-      <Text fontWeight={ 700 } fontSize="30px" lineHeight="36px">
+      <Text fontWeight={ 700 } fontSize="30px" lineHeight="36px" color="text.primary">
         { value }
       </Text>
     );
@@ -43,7 +43,7 @@ const ChainIndicatorsChart = ({ isLoading: isLoadingProp, value, valueDiff, char
       return null;
     }
 
-    const diffColor = valueDiff >= 0 ? 'green.500' : 'red.500';
+    const diffColor = valueDiff >= 0 ? 'text.success' : 'text.error';
 
     return (
       <Skeleton loading={ isLoading } display="flex" alignItems="center" color={ diffColor } ml={ 2 }>
@@ -60,7 +60,7 @@ const ChainIndicatorsChart = ({ isLoading: isLoadingProp, value, valueDiff, char
   return (
     <Flex flexGrow={ 1 } flexDir="column">
       <Skeleton loading={ isLoading } display="flex" alignItems="center" w="fit-content" columnGap={ 1 }>
-        <Text fontWeight={ 500 }>{ title }</Text>
+        <Text fontWeight={ 500 } color="text.secondary">{ title }</Text>
         { hint && <Hint label={ hint }/> }
       </Skeleton>
       <Flex mb={{ base: 0, lg: 2 }} mt={ 1 } alignItems="end">

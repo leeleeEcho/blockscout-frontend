@@ -7,14 +7,17 @@ import { calculateContainerHeight } from './utils';
 const CLASS_NAME = 'LineChartTooltip__backdrop';
 
 const LineChartTooltipBackdrop = () => {
-  const bgColor = useToken('colors', 'blackAlpha.900');
+  const [ bgColor ] = useToken('colors', 'popover.bg');
+  const [ strokeColor ] = useToken('colors', 'border.card');
 
   return (
     <rect
       className={ CLASS_NAME }
-      rx={ 12 }
-      ry={ 12 }
-      fill={ bgColor[0] }
+      rx={ 4 }
+      ry={ 4 }
+      fill={ bgColor }
+      stroke={ strokeColor }
+      strokeWidth={ 1 }
     />
   );
 };

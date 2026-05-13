@@ -16,8 +16,8 @@ type Props = {
 } & ({ label: string; children?: never } | { children: React.ReactNode; label?: never });
 
 const LineChartTooltipRow = ({ label, lineNum, children }: Props) => {
-  const labelColor = useToken('colors', 'blue.100');
-  const textColor = useToken('colors', 'white');
+  const [ labelColor ] = useToken('colors', 'text.secondary');
+  const [ textColor ] = useToken('colors', 'text.primary');
 
   return (
     <g className={ CLASS_NAME_ROW } transform={ calculateRowTransformValue(lineNum) }>
@@ -27,7 +27,7 @@ const LineChartTooltipRow = ({ label, lineNum, children }: Props) => {
             className={ CLASS_NAME_LABEL }
             transform="translate(0,0)"
             dominantBaseline="hanging"
-            fill={ labelColor[0] }
+            fill={ labelColor }
           >
             { label }
           </text>
@@ -35,7 +35,7 @@ const LineChartTooltipRow = ({ label, lineNum, children }: Props) => {
             className={ CLASS_NAME_VALUE }
             transform={ `translate(${ LABEL_WIDTH },0)` }
             dominantBaseline="hanging"
-            fill={ textColor[0] }
+            fill={ textColor }
           />
         </>
       ) }

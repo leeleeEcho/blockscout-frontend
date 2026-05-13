@@ -10,16 +10,16 @@ import { POINT_SIZE } from './utils';
 const CLASS_NAME = 'LineChartTooltip__point';
 
 const LineChartTooltipPoint = () => {
-  const bgColor = useToken('colors', useColorModeValue('black', 'white'));
-  const borderColor = useToken('colors', useColorModeValue('white', 'black'));
+  const [ fillColor ] = useToken('colors', useColorModeValue('theme.graph.line._light', 'theme.graph.line._dark'));
+  const [ strokeColor ] = useToken('colors', useColorModeValue('white', 'gray.900'));
 
   return (
     <circle
       className={ CLASS_NAME }
       r={ POINT_SIZE / 2 }
       opacity={ 1 }
-      fill={ bgColor[0] }
-      stroke={ borderColor[0] }
+      fill={ fillColor }
+      stroke={ strokeColor }
       strokeWidth={ 4 }
     />
   );

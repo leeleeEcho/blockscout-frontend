@@ -40,7 +40,7 @@ const GasInfoTooltip = ({ children, data, dataUpdatedAt, placement }: Props) => 
       3 : 2;
 
   const content = (
-    <Flex flexDir="column" textStyle="xs" rowGap={ 3 } className="dark">
+    <Flex flexDir="column" textStyle="xs" rowGap={ 3 } color="text.primary">
       { data.gas_price_updated_at && (
         <Flex justifyContent="space-between" alignItems="center">
           <Box color="text.secondary">Last update</Box>
@@ -56,7 +56,7 @@ const GasInfoTooltip = ({ children, data, dataUpdatedAt, placement }: Props) => 
         <GasInfoTooltipRow name="Normal" info={ data.gas_prices.average }/>
         <GasInfoTooltipRow name="Slow" info={ data.gas_prices.slow }/>
       </Grid>
-      <Link href={ route({ pathname: '/gas-tracker' }) }>
+      <Link href={ route({ pathname: '/gas-tracker' }) } color="text.highlight">
         Gas tracker overview
       </Link>
     </Flex>
@@ -64,12 +64,19 @@ const GasInfoTooltip = ({ children, data, dataUpdatedAt, placement }: Props) => 
 
   return (
     <Tooltip
+      variant="popover"
       content={ content }
       positioning={{ placement }}
       lazyMount
       interactive
       showArrow={ false }
-      contentProps={{ p: 4, borderRadius: 'md' }}
+      contentProps={{
+        p: 4,
+        borderRadius: 'sm',
+        borderWidth: '1px',
+        borderColor: 'border.card',
+        textAlign: 'left',
+      }}
     >
       { children }
     </Tooltip>
