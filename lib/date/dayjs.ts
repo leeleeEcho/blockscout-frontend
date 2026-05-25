@@ -97,6 +97,12 @@ for (const key of Object.keys(originalDayjs)) {
 
 export default shiftedDayjs;
 
+// Re-export namespace types so consumers can `import { Dayjs } from 'lib/date/dayjs'`
+// instead of `import type dayjs from '...'; dayjs.Dayjs` (the latter pattern doesn't
+// survive the default-export wrapping above).
+// eslint-disable-next-line no-restricted-imports
+export type { Dayjs, ConfigType, OptionType, UnitType, ManipulateType, FormatObject, QUnitType, OpUnitType } from 'dayjs';
+
 export const FORMATS = {
   // the "lll" format with seconds
   lll_s: 'MMM D, YYYY H:mm:ss',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import dayjs from 'lib/date/dayjs';
+import dayjs, { type Dayjs } from 'lib/date/dayjs';
 import type { ProgressCircleRootProps } from 'toolkit/chakra/progress-circle';
 import { ProgressCircleRing, ProgressCircleRoot } from 'toolkit/chakra/progress-circle';
 
@@ -9,7 +9,7 @@ interface Props extends ProgressCircleRootProps {
   duration: number;
 }
 
-const getValue = (startDate: dayjs.Dayjs, duration: number) => {
+const getValue = (startDate: Dayjs, duration: number) => {
   const now = dayjs();
   const diff = now.diff(startDate, 'ms');
   const value = diff / duration * 100;
