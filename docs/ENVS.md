@@ -94,6 +94,7 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
 | NEXT_PUBLIC_APP_ENV | `string` | App env (e.g development, staging, production, etc.). | - | `production` | `staging` | v1.0.x+ |
 | NEXT_PUBLIC_APP_INSTANCE | `string` | Name of app instance. Used for app monitoring purposes. If not provided, it will be constructed from `NEXT_PUBLIC_APP_HOST` | - | - | `wonderful_kepler` | v1.0.x+ |
 | NEXT_PUBLIC_USE_NEXT_JS_PROXY | `boolean` | Tells the app to proxy all APIs request through the NextJS app. **We strongly advise not to use it in the production environment**, since it can lead to performance issues of the NodeJS server | - | `false` | `true` | v1.8.0+ |
+| NEXT_PUBLIC_TIMESTAMP_OFFSET_SEC | `number` | Seconds to add to any timestamp that looks pre-1975 (e.g. an `anvil-zksync` demo node starting from Unix epoch). Leave unset on chains with real wall-clock timestamps | - | `0` | `1779062507` | axblade-dev |
 
 &nbsp;
 
