@@ -27,6 +27,10 @@ const app = Object.freeze({
   useProxy: getEnvValue('NEXT_PUBLIC_USE_NEXT_JS_PROXY') === 'true',
   spriteHash,
   isPrivateMode: isPrivateMode(),
+  // Demo-node timestamp shift (anvil-zksync uses Unix epoch as genesis).
+  // When set, lib/date/dayjs.ts adds this many seconds to inputs that look
+  // like pre-1975 timestamps. Unset / 0 = no-op for chains with real wall-clock.
+  timestampOffsetSec: Number(getEnvValue('NEXT_PUBLIC_TIMESTAMP_OFFSET_SEC') || '0'),
 });
 
 export default app;
