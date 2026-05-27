@@ -187,6 +187,9 @@ _Note_ Some properties can hold an array of up to two strings. The first string 
 | NEXT_PUBLIC_NETWORK_LOGO_DARK | `string` | Network logo for dark color mode; if not provided, **inverted** regular logo will be used instead | - | - | `https://placekitten.com/240/40` | v1.0.x+ |
 | NEXT_PUBLIC_NETWORK_ICON | `string` | Network icon; used as a replacement for regular network logo when nav bar is collapsed; if not provided, placeholder will be shown; *Note* the icon size should be at least 60px by 60px | - | - | `https://placekitten.com/60/60` | v1.0.x+ |
 | NEXT_PUBLIC_NETWORK_ICON_DARK | `string` | Network icon for dark color mode; if not provided, **inverted** regular icon will be used instead | - | - | `https://placekitten.com/60/60` | v1.0.x+ |
+| NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED | `string` | Network logo used in the collapsed-sidebar / mobile nav (custom fork). file:// URLs are resolved at container startup | - | - | `file://./deploy/assets/branding/nav-collapsed.svg` | axblade-dev |
+| NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED_DARK | `string` | Dark-mode counterpart of `NEXT_PUBLIC_NAVIGATION_LOGO_COLLAPSED` | - | - | `file://./deploy/assets/branding/nav-collapsed-dark.svg` | axblade-dev |
+| NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_BACKGROUND | `string` | Hero banner background image on the homepage (custom fork). file:// URLs are resolved at container startup | - | - | `file://./deploy/assets/branding/hero.png` | axblade-dev |
 | NEXT_PUBLIC_OTHER_LINKS | `Array<{url: string; text: string}>` | List of links for the "Other" navigation menu | - | - | `[{'url':'https://blockscout.com','text':'Blockscout'}]` | v1.0.x+ |
 | NEXT_PUBLIC_NAVIGATION_HIGHLIGHTED_ROUTES | `Array<string>` | List of menu item routes that should have a lightning label | - | - | `['/accounts']` | v1.31.0+ |
 | NEXT_PUBLIC_NAVIGATION_LAYOUT | `vertical \| horizontal` | Navigation menu layout type | - | `vertical` | `horizontal` | v1.32.0+ |
