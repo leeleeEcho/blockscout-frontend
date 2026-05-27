@@ -102,6 +102,11 @@ COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
+# AxBlade branding assets — referenced by NEXT_PUBLIC_*_LOGO and
+# NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_BACKGROUND env vars via file:// URLs
+# that download_assets.sh resolves at container startup.
+COPY --from=builder /app/deploy/assets/branding ./deploy/assets/branding
+
 # Copy tools
 COPY --from=builder /app/deploy/tools/envs-validator/dist/index.js ./envs-validator/index.js
 COPY --from=builder /app/deploy/tools/feature-reporter/dist/index.js ./feature-reporter.js
