@@ -13,9 +13,18 @@ async function generateFavicons() {
       throw new Error('FAVICON_MASTER_URL or NEXT_PUBLIC_NETWORK_ICON must be set');
     }
 
-    const response = await fetch(masterUrl);
-    const buffer = await response.arrayBuffer();
-    const source = Buffer.from(buffer);
+    // Node's fetch() does not support file:// URLs, so read local paths directly.
+    // This lets FAVICON_MASTER_URL / NEXT_PUBLIC_NETWORK_ICON point at an asset
+    // baked into the image (e.g. deploy/assets/branding/icon.svg) without round-tripping
+    // through an external host.
+    let source;
+    if (masterUrl.startsWith('file://')) {
+      source = await fs.readFile(masterUrl.replace(/^file:\/\//, ''));
+    } else {
+      const response = await fetch(masterUrl);
+      const buffer = await response.arrayBuffer();
+      source = Buffer.from(buffer);
+    }
 
     const configuration = {
       path: '/output',
