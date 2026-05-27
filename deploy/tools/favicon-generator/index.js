@@ -15,11 +15,19 @@ async function generateFavicons() {
 
     // Node's fetch() does not support file:// URLs, so read local paths directly.
     // This lets FAVICON_MASTER_URL / NEXT_PUBLIC_NETWORK_ICON point at an asset
-    // baked into the image (e.g. deploy/assets/branding/icon.svg) without round-tripping
-    // through an external host.
+    // baked into the image (e.g. file://./deploy/assets/branding/icon.svg) without
+    // round-tripping through an external host. file:// paths are interpreted as
+    // app-root-relative — same convention as download_assets.sh — since the
+    // favicon generator is invoked from ./deploy/tools/favicon-generator/ where
+    // process.cwd() does not match the app root.
     let source;
     if (masterUrl.startsWith('file://')) {
-      source = await fs.readFile(masterUrl.replace(/^file:\/\//, ''));
+      let filePath = masterUrl.replace(/^file:\/\//, '');
+      if (!path.isAbsolute(filePath)) {
+        const appRoot = process.env.APP_ROOT || path.resolve(process.cwd(), '../../..');
+        filePath = path.resolve(appRoot, filePath);
+      }
+      source = await fs.readFile(filePath);
     } else {
       const response = await fetch(masterUrl);
       const buffer = await response.arrayBuffer();
